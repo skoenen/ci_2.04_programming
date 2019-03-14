@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "haml"
+require "kramdown"
+require "sprockets"
+require "sprockets-helpers"
+require "sinatra"
+
+@content = "content"
+@template_dir = "template"
+@assets_dir = File.join(@template_dir, "assets")
+
+if ARGV.include? "-l"
+  $layout = ARGV["-l"]
+else
+  $layout = File.join(@template_dir, "layout.haml")
+end
+
+#set :public_folder, @assets_dir
+
+set :root, @content
+set :views, @content
+
+set :sprockets, Sprockets::Environment.new
+settings.sprockets.append_path(@assets_dir)
+settings.sprockets.css_compressor = :scss
+set :bind, '0.0.0.0'
+#set :bind, '::'
+
+get "/assets/*" do
+  env['PATH_INFO'].sub!('/assets', '')
+  settings.sprockets.call(env)
+end
+
+get "/" do
+  haml :index,
+    layout: :layout,
+    layout_options: { views:  "template" }
+end
+
+get "/:filename.html" do |filename|
+  puts "Handle request for '#{filename}.html.haml'"
+
+  haml filename.to_sym,
+    layout: :layout,
+    layout_options: { views: "template" }
+end
+

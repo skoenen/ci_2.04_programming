@@ -1,0 +1,14 @@
+!!!5
+%html
+  %head
+    %title= @title
+    %link{ rel: "stylesheet", href: "/assets/reveal/css/reveal.css" }
+    %link{ rel: "stylesheet", href: "/assets/reveal/css/theme/solarized.css"  }
+    %link{ rel: "stylesheet", href: "/assets/app.css"}
+
+  %body.reveal
+    .slides
+      = yield
+
+    %script{ src: "/assets/app.js"}
+

@@ -3,7 +3,7 @@
     :markdown
       # What is programming?
 
-      Programming is a way to get a computing system to do what you want.
+      Programming is a way to get a _computing system_ to do what you want.
 
       The difficulty is, to formulate the task in a way, that the computing
       system understands it.
@@ -18,9 +18,20 @@
       In nearly all cases such a system is called a "computer".
 
       A basic computer has an central processing unit (cpu),
-      runtime memory (i.e. RAM), input methods and output methods.
+      runtime memory (i.e. RAM), input and output methods.
 
-      The computer can execute single instructions in binary representation.
+      The computer can execute single _instructions_ in binary representation.
+
+  %section
+    :markdown
+      ## Deeper look at the "CPU"
+
+      A __CPU__ consits of several components.
+
+      - An `Arithmetic Logic Unit` (ALU)
+      - Control Unit with Microcode
+      - Registers
+      - Input- and Outputfunctions
 
   %section
     :markdown
@@ -34,22 +45,37 @@
 
 %section
   %section
-    %h1
-      What are these instructions?
-
-  %section
     :markdown
+      ## What are these instructions?
+
       Instructions for a computer are simple short operations that
 
       - Transform data
       - Generate data
       - Change the next instructions
 
+  %section
+    :markdown
+      ### Structure of an Instruction
+
+      An instruction has two parts.
+
+      - Operand
+      - Parameter(s)
+
+      The Operand encodes how the `control unit` has to configure the `ALU`
+
+      The Parameter(s), for most _Operands_ are mandatory.
+
+  %section
+    :markdown
+      ## From Instructions to Program
+
       For a specific task, a computer needs several instructions to fulfill it.
 
       Therefore an ordered list of instructions has to be provided to the computer.
 
-      These lists are mostly called a __program__.
+      These lists are mostly called a __program__ or __algorithm__
 
   %section
     :markdown
@@ -124,15 +150,11 @@
 
 %section
   %section
-    %h1
-      What is a program
-
-  %section
     :markdown
+      # What is a program
+
       A program defines in which order a computer has to traverse a given list of
       instructions.
-
-      A program has to be loaded inside the `runtime memory`.
 
       Programs can contain a data section, that describes assets that are used
       by instructions of the program.
@@ -147,9 +169,11 @@
 
       To let the computer work on a task, it needs a program.
 
+      A program has some requirements:
+
       - Program is in memory
       - Is in binary form
-      - Binary form is not so readable
+      - Binary form is the _dialect_ of the `CPU`
 
   %section
     :markdown
@@ -160,12 +184,16 @@
 
       But even this is not __developer friendly__ and prone to errors.
 
-      To tackle this problem, there are other programming languages.
+      To tackle this problem, there are other reprensatations invented,
+      these are called _programming languages_.
 
 %section
   %section
     :markdown
       # What the hack is a *Programming Language*
+
+      A programming language is formal language to formulate a transformation
+      on a given input to a desired output.
 
   %section
     :markdown

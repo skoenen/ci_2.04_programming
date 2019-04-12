@@ -29,7 +29,12 @@ Reveal.initialize({
     { src: '/assets/reveal/plugin/notes/notes.js', async: true },
     // MathJax
     { src: '/assets/reveal/plugin/math/math.js', async: true }
-  ]
+  ],
+  keyboard: {
+    27: function() {
+      location = "/index.html";
+    },
+  }
 });
 
 // Change j and k binding for changing slide direction for Colemak

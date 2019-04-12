@@ -7,8 +7,23 @@
     %link{ rel: "stylesheet", href: "/assets/app.css"}
 
   %body.reveal
+    .header
+
     .slides
       = yield
+
+    .footer
+      %img.logo{ src: url("assets/hsrw.svg") }
+
+      .author
+        .name
+          Stefan Koenen, M.Sc
+        .email
+          %a(href="mailto:stefan.koenen@hochschule-rhein-waal.de?subject=CI_2.03_Introduction_to_programming")
+            stefan.koenen@hochschule-rhein-waal.de
+
+      .index
+        %a(href="/index.html")
 
     %script{ src: "/assets/app.js"}
 

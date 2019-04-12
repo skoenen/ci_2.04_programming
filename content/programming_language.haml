@@ -1,0 +1,207 @@
+%section
+  %section
+    :markdown
+      # What is programming?
+
+      Programming is a way to get a _computing system_ to do what you want.
+
+      The difficulty is, to formulate the task in a way, that the computing
+      system understands it.
+
+  %section
+    :markdown
+      ## What is a computing system?
+
+      In this lecture a computing system is an electronic system that handles
+      instructions.
+
+      In nearly all cases such a system is called a "computer".
+
+      A basic computer has an central processing unit (cpu),
+      runtime memory (i.e. RAM), input and output methods.
+
+      The computer can execute single _instructions_ in binary representation.
+
+  %section
+    :markdown
+      ## Deeper look at the "CPU"
+
+      A __CPU__ consits of several components.
+
+      - An `Arithmetic Logic Unit` (ALU)
+      - Control Unit with Microcode
+      - Registers
+      - Input- and Outputfunctions
+
+  %section
+    :markdown
+      ## What is the purpose of a "computer"?
+
+      A computer is a data handling or data transformation machine.
+
+      To do this it executes small simple instructions.
+
+      These instructions are stored in binary form inside the `runtime memory`.
+
+%section
+  %section
+    :markdown
+      ## What are these instructions?
+
+      Instructions for a computer are simple short operations that
+
+      - Transform data
+      - Generate data
+      - Change the next instructions
+
+  %section
+    :markdown
+      ### Structure of an Instruction
+
+      An instruction has two parts.
+
+      - Operand
+      - Parameter(s)
+
+      The Operand encodes how the `control unit` has to configure the `ALU`
+
+      The Parameter(s), for most _Operands_ are mandatory.
+
+  %section
+    :markdown
+      ## From Instructions to Program
+
+      For a specific task, a computer needs several instructions to fulfill it.
+
+      Therefore an ordered list of instructions has to be provided to the computer.
+
+      These lists are mostly called a __program__ or __algorithm__
+
+  %section
+    :markdown
+      ## How are instructions stored?
+
+      A computer can only work with binary representations of instructions.
+
+      Instructions are a specific encoding of several *0* and *1*.
+
+      The way they have to be encoded depends on the cpu architecture.
+
+      But because binary is not so readable for __humans__, a different
+      representation was invented __Assembler__.
+
+  %section
+    :markdown
+      ## What is Assembler?
+
+    %pre
+      %code.assembler.armasm.hljs
+        :preserve
+          .text
+          .global _start
+          _start:
+              mov r0, #1
+              ldr r1, =message
+              ldr r2, =len
+              mov r7, #4
+              swi 0
+
+              mov r7, #1
+              swi 0
+
+          .data
+          message:
+              .asciz "hello world\n"
+          len = .-messag
+
+    Hello World in <strong>ARM Assembler</strong>
+
+    %aside.notes
+      :markdown
+        - Each instruction is a direct mapping to binary
+        - This not that readable right?
+        - How about the code on the next slide?
+
+  %section
+    %h2
+      Better readable instructions?
+
+    %pre
+      %code.rust.hljs
+        :preserve
+          // This is the main function
+          fn main() {
+              // The statements here will be executed when the compiled binary is called
+
+              // Print text to the console
+              println!("Hello World!");
+          }
+
+    Hello World in <strong>Rust</strong>
+
+    %p.fragment
+      But not understandable by the computer.
+
+    %p.fragment
+      Has to be translated ⇒ we will see later how.
+
+    %p.fragment
+      This is a program.
+
+%section
+  %section
+    :markdown
+      # What is a program
+
+      A program defines in which order a computer has to traverse a given list of
+      instructions.
+
+      Programs can contain a data section, that describes assets that are used
+      by instructions of the program.
+
+      Some instructions inside a program are grouped and have a dedicated purpose.
+
+      These instructions are called an __Algorithm__.
+
+  %section
+    :markdown
+      ## How to create a program?
+
+      To let the computer work on a task, it needs a program.
+
+      A program has some requirements:
+
+      - Program is in memory
+      - Is in binary form
+      - Binary form is the _dialect_ of the `CPU`
+
+  %section
+    :markdown
+      ## How to create *human* readable programs?
+
+      The assembler representation of a program is more understandable, than the
+      binary form.
+
+      But even this is not __developer friendly__ and prone to errors.
+
+      To tackle this problem, there are other reprensatations invented,
+      these are called _programming languages_.
+
+%section
+  %section
+    :markdown
+      # What the hack is a *Programming Language*
+
+  %section
+    :markdown
+      ## A programming language
+
+      Is formal language, to formulate a transformation
+      on a given input to a desired output.
+
+      It is also an abstraction for the instructions of a specific computing
+      system.
+
+  %section
+    :markdown
+

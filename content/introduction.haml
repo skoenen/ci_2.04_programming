@@ -1,202 +1,121 @@
 %section
   %section
     :markdown
-      # What is programming?
+      # Introduction to _Programming_
 
-      Programming is a way to get a _computing system_ to do what you want.
-
-      The difficulty is, to formulate the task in a way, that the computing
-      system understands it.
 
   %section
     :markdown
-      ## What is a computing system?
+      ## Introduction
 
-      In this lecture a computing system is an electronic system that handles
-      instructions.
-
-      In nearly all cases such a system is called a "computer".
-
-      A basic computer has an central processing unit (cpu),
-      runtime memory (i.e. RAM), input and output methods.
-
-      The computer can execute single _instructions_ in binary representation.
-
-  %section
-    :markdown
-      ## Deeper look at the "CPU"
-
-      A __CPU__ consits of several components.
-
-      - An `Arithmetic Logic Unit` (ALU)
-      - Control Unit with Microcode
-      - Registers
-      - Input- and Outputfunctions
-
-  %section
-    :markdown
-      ## What is the purpose of a "computer"?
-
-      A computer is a data handling or data transformation machine.
-
-      To do this it executes small simple instructions.
-
-      These instructions are stored in binary form inside the `runtime memory`.
+      - Who am I?
+      - What to expect?
+      - What about the slides and other stuff?
+      - What about the exam?
+      - How are excercises done?
+      - What will be done in the practica?
 
 %section
   %section
     :markdown
-      ## What are these instructions?
+      # Who am I?
 
-      Instructions for a computer are simple short operations that
-
-      - Transform data
-      - Generate data
-      - Change the next instructions
+      - Stefan Koenen, M.Sc. IT
+      - No __Professor__
+      - Doing computer stuff since 27 years (really that long :? )
 
   %section
     :markdown
-      ### Structure of an Instruction
+      ## How to reach me?
 
-      An instruction has two parts.
+      - Office Hours
+        - Tuesday: 10:00 UTC+1 => 11:00 UTC+1
+      - eMail: <a href="mailto:stefan.koenen@hochschule-rhein-waal.de?subject=CI_2.03_Introduction_to_programming&body=Dear%20Mr.%20Koenen%2C%0A%0Amay%20I%20...%0A%0AGreetings%2C%0ANAME">stefan.koenen@hochschule-rhein-waal.de</a>
 
-      - Operand
-      - Parameter(s)
+%section
+  :markdown
+    # What to expect?
 
-      The Operand encodes how the `control unit` has to configure the `ALU`
-
-      The Parameter(s), for most _Operands_ are mandatory.
-
-  %section
-    :markdown
-      ## From Instructions to Program
-
-      For a specific task, a computer needs several instructions to fulfill it.
-
-      Therefore an ordered list of instructions has to be provided to the computer.
-
-      These lists are mostly called a __program__ or __algorithm__
-
-  %section
-    :markdown
-      ## How are instructions stored?
-
-      A computer can only work with binary representations of instructions.
-
-      Instructions are a specific encoding of several *0* and *1*.
-
-      The way they have to be encoded depends on the cpu architecture.
-
-      But because binary is not so readable for __humans__, a different
-      representation was invented __Assembler__.
-
-  %section
-    :markdown
-      ## What is Assembler?
-
-    %pre
-      %code.assembler.armasm.hljs
-        :preserve
-          .text
-          .global _start
-          _start:
-              mov r0, #1
-              ldr r1, =message
-              ldr r2, =len
-              mov r7, #4
-              swi 0
-
-              mov r7, #1
-              swi 0
-
-          .data
-          message:
-              .asciz "hello world\n"
-          len = .-messag
-
-    Hello World in <strong>ARM Assembler</strong>
-
-    %aside.notes
-      :markdown
-        - Each instruction is a direct mapping to binary
-        - This not that readable right?
-        - How about the code on the next slide?
-
-  %section
-    %h2
-      Better readable instructions?
-
-    %pre
-      %code.rust.hljs
-        :preserve
-          // This is the main function
-          fn main() {
-              // The statements here will be executed when the compiled binary is called
-
-              // Print text to the console
-              println!("Hello World!");
-          }
-
-    Hello World in <strong>Rust</strong>
-
-    %p.fragment
-      But not understandable by the computer.
-
-    %p.fragment
-      Has to be translated ⇒ we will see later how.
-
-    %p.fragment
-      This is a program.
+    - Talking about concept of programming
+    - Differences in _pramming languages_
+    - Talking about _control structures_
+    - A bit about _data structures_
 
 %section
   %section
     :markdown
-      # What is a program
+      # What about slides and other stuff?
 
-      A program defines in which order a computer has to traverse a given list of
-      instructions.
-
-      Programs can contain a data section, that describes assets that are used
-      by instructions of the program.
-
-      Some instructions inside a program are grouped and have a dedicated purpose.
-
-      These instructions are called an __Algorithm__.
+      - The slides will be available at:
+        [https://github.com/skoenen/ci_2.03_programming](Github/skoenen)
 
   %section
     :markdown
-      ## How to create a program?
+      ## Why Github?
 
-      To let the computer work on a task, it needs a program.
-
-      A program has some requirements:
-
-      - Program is in memory
-      - Is in binary form
-      - Binary form is the _dialect_ of the `CPU`
+      - If you find an error, please make a __Pull Request__ with the correction
+      - If you think, there is something missing, see point above :)
+      - If you have a question, open an _issue_
 
   %section
     :markdown
-      ## How to create *human* readable programs?
+      ## Why shoud I do this?
 
-      The assembler representation of a program is more understandable, than the
-      binary form.
+      I will use information in this to see where the most problems are.
 
-      But even this is not __developer friendly__ and prone to errors.
+      And also, if you are on the edge in the exam. I can probably see, that you
+      know the stuff and take this into account.
 
-      To tackle this problem, there are other reprensatations invented,
-      these are called _programming languages_.
+      Also you are helping your commolitones.
 
 %section
   %section
     :markdown
-      # What the hack is a *Programming Language*
+      # What about the exam?
 
-      A programming language is formal language to formulate a transformation
-      on a given input to a desired output.
+      This course will be examined in a written exam.
+
+      The exam will take 90 minutes
 
   %section
     :markdown
-      ## A programming language
+      ## Allowed tools are:
 
-      Is a textual notation of
+      - Pen
+      - Ruler
+      - Calculator
+      - Din A4 Sheet of paper with notes __hand written__
+
+  %section
+    :markdown
+      ## Possible Tasks?
+
+      - Write a short program in a given language.
+      - Name advantages of a _data structure_
+      - Name disadvantages of a _data structure_
+      - Explain a concept of a programming language
+      - Explain a programming pattern
+      - Determine and write down the the purpose of a given program code
+      - Determine the output of a given program code
+      - Find an error in a given program code
+      - Correct an error in a given program code
+
+%section
+  :markdown
+    # How are excercises done?
+
+    There will be short tasks, that
+
+    - You should do firstly alone
+    - After 5 -> 15 minutes (depends on task) we have a look at the solution
+      together
+
+%section
+  :markdown
+    # What will be done in the practica?
+
+    1. There will be a preparation, that you should do bevor hand
+      _(It is expected that you did it and know it.)_
+    2. You will do the practica on your own
+    3. I will have a look and give some guidance
+

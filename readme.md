@@ -17,6 +17,7 @@ The output will look something like this:
 `ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]`
 
 Finally, for some reason ruby development tools doesn't seem to come with the full installation done above so we have to manually install all of them with the following command:
+
 `sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev`
 
 ## Install Rake

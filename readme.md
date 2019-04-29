@@ -40,7 +40,9 @@ The output will look something like this:
 
 `rake, version 12.3.2`
 
-Then run the `rake` command which runs the default serve command in the Rakefile [Note: This command should be run from the project directory].
+Then run the `rake` command which runs the default serve command in the Rakefile
+
+[Note: This command should be run from the project directory].
 
 `rake`
 
@@ -48,6 +50,8 @@ If everything runs smoothly, the last line of your console message should have a
 
 `[2019-04-30 00:18:40] INFO WEBrick::HTTPServer#start: pid=596 port=4567`
 
-This means you can access the slides on your browser by visiting: [Note: The port number(4567) in the following command might change depending on port number displayed in the console's last line above, so make sure to check this if your browser doesn't load the slides up correctly]:
+This means you can access the slides on your browser by visiting:
 
-`http://localhost:4567`
+[note: the port number(4567) in the following command might change depending on port number displayed in the console's last line above, so make sure to check this if your browser doesn't load the slides up correctly]:
+
+ `http://localhost:4567`

@@ -232,6 +232,7 @@
 
       Or in most cases both.
 
+%section
   %section
     :markdown
       ## Programming paradigm
@@ -269,19 +270,236 @@
       - logic
       - mathematical
 
+%section
   %section
     :markdown
       ## Procedural programming
 
   %section
     :markdown
-      ## Object Oriented Programming
+      ### Goal of Procedural Programming
+
+      The goal and main desire in programming languages of this paradigm, is
+      modularity on instruction group level.
 
   %section
     :markdown
-      ## Functional Programming
+      ### Main concept of Procedural Programming
+
+      Instruction groups are called blocks.
+      And together with:
+
+      - Name
+      - Parameters
+      - Return value
+
+      called `Procedures`
 
   %section
     :markdown
-      ## Logic and mathematical programming
+      ### Key aspects of Procedural Programming
+
+      - Modularity
+      - Scoping
+      - Blocks
+      - Reuseability
+
+  %section
+    :markdown
+      ### Example
+
+    %pre
+      %code.c.hljs
+        :preserve
+          #include <stdio.h>
+
+          int get_number_from_user();
+          int sum_numbers(int number_one, int number_two);
+          void output_number(int number);
+
+          void main(int argc, char* argv) {
+            int number_one,
+                number_two,
+                result;
+
+            number_one = get_number_from_user();
+            number_two = get_number_from_user();
+
+            result = sum_numbers(number_one, number_two);
+
+            output_number(result);
+          }
+
+%section
+  %section
+    :markdown
+      ## Object Oriented Programming [OOP]
+
+      This programming paradigm is based on the concept of _objects_.
+
+      `Objects` can contain:
+
+      - Data, declared as _fields_ (often also called _attributes_)
+      - Functionality, group in _methods_
+
+  %section
+    :markdown
+      ### OOP | Objects & Methods
+
+      A main feature of OOP languages is encapsulation.
+
+      To change a _field_, an `Object` has to provide its own Functionality.
+
+      The make this possible, instances of objects have a notion of `self` or
+      `this`.
+      Referring to itself.
+
+  %section
+    :markdown
+      ### OOP | Object or Objects?
+
+      Some OOP languages have only the awareness of `Object` and there is
+      always only one `Object` out of one definition.
+
+      Most popular languages have awareness for multiple objects of the same
+      definition.
+
+      Two main concepts are used in modern programming languages:
+
+      - Prototype based
+      - Class based
+
+  %section
+    :markdown
+      #### OOP | Prototype based multi object
+
+      In this approach, multiple objects are realised through using an existing
+      object as the base of another object.
+
+      Popular language that uses this concept:
+
+      __JavaScript__
+
+      _Example_
+
+  %section
+    :markdown
+      #### OOP | Class based multi objects
+
+      In this approach it is realised by defining a template for objects.
+
+      And then use this to create new objects.
+
+  %section
+    :markdown
+      ### OOP | Template & Instances
+
+      The possibility to have multiple instances, is realised by having a
+      template.
+
+      From this an object can then be cloned.
+      And is then called an _instance_ of the object definition.
+
+      Often the terms for this concepts are
+
+      - Template / Object Definition: `Class`
+      - Instance / Object: Instance
+
+  %section
+    :markdown
+      ### OOP | Template of Template? Häh?
+
+      Another base concept of object oriented programming languages is,
+      the possibility to have an template include/integrate definitions of
+      another template.
+
+      This concept is called _inheritance_.
+
+  %section
+    :markdown
+      #### OOP | Inheritance
+
+      There are two basic types, how inheritance is integrated in the language.
+
+      - Single Inheritance
+      - Multiple Inheritance
+
+      Inheritance allows to have a hierachy of classes.
+
+  %section
+    :markdown
+      #### OOP | Inheritance
+
+      Aspects of Inheritance:
+
+      - Method resolution
+      - Method overriding
+      - Field access
+      - Encapsulation breach
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      Describes the possibility to have a base class and use the _fields_ and
+      _methods_ of that in other classes.
+
+      __Example__
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      Advantages:
+
+      - Easy to implement in the language
+      - Easy to understand
+      - Efficient in _Method resolution_
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      But what todo it two base classes.
+
+      - Multi-Level Inheritance
+      - Interface inclusion
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance | ML-Inheritance
+
+      This concept introduces a third classes that provides the Functionality
+      of the second base class and inherits the rest Functionality of the first
+      base class.
+
+      __Example__
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance | Interface inclusion
+
+      Define a special case of template.
+
+      These template can only have definitions.
+
+      The implementations to these definitions have to be done by the including
+      class.
+
+  %section( id="multi-inheritance" )
+    :markdown
+      #### OOP | Multiple Inheritance
+
+      In this concept it is possible that a class can have multiple base
+      classes.
+
+    %img( src="/graph/oop_inheritance_multi.svg" )
+
+%section
+  :markdown
+    ## Functional Programming
+
+%section
+  :markdown
+    ## Logic and mathematical programming
 

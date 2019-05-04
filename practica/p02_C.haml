@@ -107,6 +107,58 @@
 
       - `$ man 2 gettimeofday`
       - `struct timeval` definition in man page
+      - `$ man 3 ctime`
+      - [Structures in C](https://www.tutorialspoint.com/cprogramming/c_structures.html)
+
+  %section
+    :markdown
+      #### First control structure
+
+      ##### IF
+
+    %pre
+      %code.c.hljs
+        :preserve
+          if(<CONDITION>) {
+            ... Instructions in here will be done if
+                CONDITION evaluates to "True or > 0"
+          }
+
+  %section
+    :markdown
+      ##### IF-ELSE
+
+    %pre
+      %code.c.hljs
+        :preserve
+          if(<CONDITION>) {
+            ... As above ...
+
+          } else {
+            ... Instructions in here will be done if
+                CONDITION evaluates to "False or <= 0"
+          }
+
+  %section
+    :markdown
+      ##### IF-ELSE IF-ELSE
+
+    %pre
+      %code.c.hljs
+        :preserve
+          if(CONDITION) {
+            ... As Above ...
+
+          } else if(CONDITION_2) {
+            ... Instructions in here will be done if:
+                CONDITION evaluates to "False or <= 0"
+                and
+                CONDITION_2 evaluates to "True or > 0"
+
+          } else {
+            ... As above but all IFs above must evaluate to
+                "False or <= 0" ...
+          }
 
   %section
     %h3
@@ -160,8 +212,8 @@
       ## The Task
 
       1. Write into a file, a program that:
-        - Asks for the name of the user
-        - Depending on time of day greets the user differently
+          - Asks for the name of the user
+          - Depending on time of day greets the user differently
       2. Compile the file to an executable.
       3. Run the executable.
 

@@ -3,7 +3,10 @@
 int main() {
   char name[20];
 
-  scanf("Your name please: %s", &name);
-  printf("Hello %s!", name);
+  printf("Your name please: ");
+  scanf("%s", name);
+
+  printf("\nHello %s!\n", name);
+
   return 0;
 }

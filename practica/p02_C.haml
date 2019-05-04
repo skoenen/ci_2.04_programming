@@ -25,25 +25,132 @@
     ## Additional information
 
     - `$ man clang`
-    - `$ man printf`
-    - `$ man scanf`
-
-
 
 %section
-  :markdown
-    ## Task A
+  %section
+    %h2
+      Task A
 
-    1. Write a small program in a file, that outputs `Hello World!`
-    2. Compile the file to an executable
-    3. Run the executable
+  %section
+    :markdown
+      ### Additional information
+
+      - `$ man printf`
+      - `$ ./<program name to start>`
+
+      #### Starting code
+
+    %pre
+      %code.c.hljs
+        :preserve
+          #include <stdio.h>
+
+          int main() {
+
+            ... YOUR CODE HERE ...;
+
+            return 0;
+          }
+
+  %section
+    :markdown
+      ### The task
+
+      1. Write a small program in a file, that outputs `Hello World!`
+      2. Compile the file to an executable
+      3. Run the executable
 
 %section
-  :markdown
-    ## Task B
+  %section
+    %h2
+      Task B
 
-    1. Write a small program in a file, that asks for the name of the user
-      and then outputs `Hello <NAME of User>`
-    2. Compile the file to an executable
-    3. Run the executable
+  %section
+    :markdown
+      ### Additional information
+
+      - `$ man 3 scanf`
+
+      #### Starting code
+
+    %pre
+      %code.c.hljs
+        :preserve
+          #include <stdio.h>
+
+          int main() {
+            char name[32];
+
+            ... YOUR CODE HERE ...;
+
+            printf("Hello %s!\n", name);
+
+            return 0;
+          }
+
+  %section
+    :markdown
+      ## The task
+
+      1. Write a small program in a file, that asks for the name of the user
+        and then outputs `Hello <NAME of User>!`
+      2. Compile the file to an executable
+      3. Run the executable
+
+%section
+  %section
+    %h2 Task C
+
+  %section
+    :markdown
+      ### Additional Information
+
+      - `$ man 2 gettimeofday`
+      - `struct timeval` definition in man page
+
+  %section
+    %h3
+      Additional Information
+
+    %h4
+      Starting code
+
+    %pre
+      %code.c.hljs
+        :preserve
+          #include <stdio.h>
+          #include <sys/time.h>
+          #include <time.h>
+
+          int main() {
+            struct timeval tv;
+
+            if(gettimeofday(tv, NULL) == 0) {
+              struct tm time = localtime(tv->tv_sec);
+
+              if(...) {
+                printf("Good Morning %s!\n", name);
+
+              } else if(...) {
+                printf("Good Afternoon %s!\n", name);
+
+              } else {
+                printf("Good Evening %s!\n", name);
+              }
+
+            } else {
+              printf("Could not get time of day");
+              return 1;
+            }
+          }
+
+  %section
+    :markdown
+      ## The Task
+
+      1. Write into a file, a program that:
+        - Asks for the name of the user
+        - Depending on time of day greets the user differently
+      2. Compile the file to an executable.
+      3. Run the executable.
 

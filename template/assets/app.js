@@ -2,6 +2,7 @@
 //= require reveal/js/reveal.js
 
 //= require highlight/highlight.pack.js
+//= require highlight/highlightjs-line-numbers.min.js
 //= require dagre.min.js
 //= require dagre-d3.min.js
 //
@@ -56,7 +57,8 @@ Reveal.addKeyBinding(75, function () { Reveal.down(); });
 
 document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block)
+    hljs.highlightBlock(block);
+    hljs.lineNumbersBlock(block);
   })
 });
 

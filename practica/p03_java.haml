@@ -1,0 +1,172 @@
+%section
+  %h1
+    Get to know Java
+
+%section
+  %section
+    :markdown
+      # Pre Lab Tasks
+
+      1. Have a running Linux Development Environment
+      2. Be familiar with your chosen Text Editor
+      3. Install jdk
+        - ArchLinux: `$ sudo pacman -S jdk-openjdk`
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - Compiler:
+        - `$ javac -d build -encoding UTF-8 -g SOURCE_FILENAME`
+      - Runner
+        - `$ java -cp build CLASS_NAME`
+
+  %section
+    :markdown
+      ## Starting Code
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class ... {
+            public static int main() {
+              ...
+
+              return 0;
+            }
+          }
+
+%section
+  %section
+    :markdown
+      # Task A
+
+      1. Write a program that outputs
+        `Hello World!`
+      2. Compile the program to Java Bytecode
+      3. Use the JVM (Java Virtual Machine) to run the Java Bytecode
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - [Java System](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html)
+
+%section
+  %section
+    :markdown
+      # Task B
+
+      1. Write a program that:
+        - Asks for the name of the user
+        - Greets the user with `Hello <NAME>!`
+      2. Compile the program to Java Bytecode
+      3. Use the JVM to run the Java Bytecode
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - [java.io.Console](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Console.html)
+
+%section
+  %section
+    :markdown
+      # Task C
+
+      1. Write a program that:
+        - Asks for the name of the user
+        - Greets the user according to time of day.
+      2. Compile the program to Java Bytecode
+      3. Use the JVM to run the Java Bytecode
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - [java.time.LocalTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html)
+
+%section
+  %section
+    :markdown
+      # Task D
+
+      1. Write a program that:
+        - Asks for a sentence from the user.
+        - Outputs the sentence in reverse.
+      2. Compile the program to Java Bytecode
+      3. Use the JVM to run the Java Bytecode
+
+%section
+  %section
+    :markdown
+      # Task E
+
+      This time we will learn to make our live easier with a _Build Script_
+
+      A _Build Script_ allows us to define tasks that have to be done to compile
+      and also run our source code.
+
+      For Java there are several build scrips:
+
+      - Ant
+      - Maven
+      - Gradle
+
+      And also most IDEs provide tools to do this.
+
+  %section
+    :markdown
+      ## Using Gradle
+
+      Base script for java
+      (You can also find a base folder in the repo in
+      `practica/p03_Java/task_e/gradle_base`)
+
+  %section
+    %pre
+      %code.gradle.hljs
+        :escaped
+          plugins {
+            // Activate "Java" Plugin
+            // Imports predefined tasks specific for java
+            id 'java'
+
+            // Telling gradle this is an application and not a library
+            id 'application'
+          }
+
+          // Needed MS Windows, to be compatible to other OS
+          allprojects {
+            System.setProperty("file.encoding", "UTF-8")
+          }
+
+          // Normaly reverse notation of your company/personal domain
+          group "eu.hsrw.ais"
+
+          version 0.1
+
+          // Where to find dependencies for the Source Code
+          repositories {
+            mavenCentral()
+            jcenter()
+          }
+
+          dependencies {
+            // Definition of needed dependencies
+          }
+
+          // Needed for `id 'application'`
+          mainClassName = "org.hsrw.ci_2_04_programming.2019_ss.App"
+
+  %section
+    :markdown
+      ## The Task
+
+      Answer some questions:
+
+      1. How to use the _Gradle Build Script_?
+      2. How many tasks are defined?
+      3. Which task to use to compile the source code?
+      4. Which task to use to run the program?
+

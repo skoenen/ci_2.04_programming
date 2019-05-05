@@ -96,7 +96,7 @@
 
     %pre
       %code.assembler.armasm.hljs
-        :preserve
+        :escaped
           .text
           .global _start
           _start:
@@ -128,7 +128,7 @@
 
     %pre
       %code.rust.hljs
-        :preserve
+        :escaped
           // This is the main function
           fn main() {
               // The statements here will be executed when the compiled binary is called
@@ -310,7 +310,7 @@
 
     %pre
       %code.c.hljs
-        :preserve
+        :escaped
           #include <stdio.h>
 
           int get_number_from_user();
@@ -495,11 +495,104 @@
 
     %img( src="/graph/oop_inheritance_multi.svg" )
 
-%section
-  :markdown
-    ## Functional Programming
+  %section
+    :markdown
+      ### OOP | Prominent Languages
+
+      - C++
+      - C#
+      - Objective-C
+      - Swift
+      - Java
+      - Python
+      - Ruby
+      - Scala
+      - JavaScript
+
+  %section
+    :markdown
+      ## OOP | Actor Model
+
+      The Actor Model is a special variant of OOP.
+
+      An actor is an encapsulated state.
+      Only the actor itself is capable to
+
+      - Change state
+      - Report state to an other actor
+
+  %section
+    :markdown
+      ### OOP | AM | Messages
+
+      All changes in the system to
+
+      - Change state
+      - Create a new Actor
+      - Reporting of state
+
+      is done through the receive of a message to an actor.
+
+  %section
+    :markdown
+      ### OOP | AM | Messages
+
+      The order of messages delivered of received by an actor is not fixed.
+      Is not granted.
+
+  %section
+    :markdown
+      ### OOP | AM | Advantages
+
+      - Good for concurrent systems
+      - Actors can be distributed over multiple connected _computers_
+      - Often makes the functionality and flow of a software system more
+        understandable
+      -
 
 %section
-  :markdown
-    ## Logic and mathematical programming
+  %section
+    %h2
+      Functional Programming
+
+  %section
+    :markdown
+      ### FP | Philosopy
+
+      In this, the style of programming to build the structure and functionality
+      is treated as the evaluation of mathematical functions.
+
+  %section
+    :markdown
+      ### FP | Main aspects
+
+      - It avoids changing state and _mutable_ data.
+      - Functions are __idempotent__
+      - All instrutions are _expressions_
+      - Changing state in a higher scope is only done through return values
+
+  %section
+    :markdown
+      ### FP | Prominent Languages
+
+      - JavaScript
+      - Erlang
+      - Rust
+      - Go
+      - C
+      - Scala
+
+  %section
+    :markdown
+      ### FP | What is an __Expression__?
+
+      Is a formulation that is evaluating to a result.
+
+    %pre
+      %code.elixir.hljs
+        :escaped
+          iex> 2 + 2
+          // 4
+          iex> div(10, 5)
+          // 2
 

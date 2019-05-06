@@ -564,6 +564,15 @@
 
   %section
     :markdown
+      ### FP | Building Blocks
+
+      - Procedures are _Functions_
+      - Pattern Matching
+      - __No__ global state
+      - No OOP-Objects (but lists)
+
+  %section
+    :markdown
       ### FP | Main aspects
 
       - It avoids changing state and _mutable_ data.
@@ -595,4 +604,38 @@
           // 4
           iex> div(10, 5)
           // 2
+
+  %section
+    :markdown
+      ### FP | Expressions and Parameters
+
+      Because everything is an __Expression__, functional programming languages
+      have the possibility to use a function as a parameter to a function.
+
+  %section
+    :markdown
+      ### FP | Pattern Matching
+
+      In functional programming, there is a concept called _Pattern Matching_.
+
+      - Assignments are patterns
+      - Function calls are patterns
+
+  %section
+    %h3
+      FP | Pattern Matching | Example
+
+    %pre
+      %code.elixir.hljs
+        :escaped
+          a = "This is a text"
+          b = 2
+
+          b = a
+          // Pattern match error. Left hand side wrong Datatype.
+
+%section
+  %h1
+    %a(href="/control_structures.haml")
+      Next Up: Control Structures
 

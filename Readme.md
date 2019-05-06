@@ -4,6 +4,8 @@ This guide is meant for those who have access to a Linux CLI either on
 arch-linux on virtual box, ubuntu cli for windows or dual boot windows/linux
 system.
 
+## Get the slide contents
+
 Also this guide assumes you must have a
 [clone](https://help.github.com/en/articles/cloning-a-repository) or download
 of the project on your pc.

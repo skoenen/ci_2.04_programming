@@ -1,0 +1,641 @@
+%section
+  %section
+    :markdown
+      # What is programming?
+
+      Programming is a way to get a _computing system_ to do what you want.
+
+      The difficulty is, to formulate the task in a way, that the computing
+      system understands it.
+
+  %section
+    :markdown
+      ## What is a computing system?
+
+      In this lecture a computing system is an electronic system that handles
+      instructions.
+
+      In nearly all cases such a system is called a "computer".
+
+      A basic computer has an central processing unit (cpu),
+      runtime memory (i.e. RAM), input and output methods.
+
+      The computer can execute single _instructions_ in binary representation.
+
+  %section
+    :markdown
+      ## Deeper look at the "CPU"
+
+      A __CPU__ consits of several components.
+
+      - An `Arithmetic Logic Unit` (ALU)
+      - Control Unit with Microcode
+      - Registers
+      - Input- and Outputfunctions
+
+  %section
+    :markdown
+      ## What is the purpose of a "computer"?
+
+      A computer is a data handling or data transformation machine.
+
+      To do this it executes small simple instructions.
+
+      These instructions are stored in binary form inside the `runtime memory`.
+
+%section
+  %section
+    :markdown
+      ## What are these instructions?
+
+      Instructions for a computer are simple short operations that
+
+      - Transform data
+      - Generate data
+      - Change the next instructions
+
+  %section
+    :markdown
+      ### Structure of an Instruction
+
+      An instruction has two parts.
+
+      - Operand
+      - Parameter(s)
+
+      The Operand encodes how the `control unit` has to configure the `ALU`
+
+      The Parameter(s), for most _Operands_ are mandatory.
+
+  %section
+    :markdown
+      ## From Instructions to Program
+
+      For a specific task, a computer needs several instructions to fulfill it.
+
+      Therefore an ordered list of instructions has to be provided to the computer.
+
+      These lists are mostly called a __program__ or __algorithm__
+
+  %section
+    :markdown
+      ## How are instructions stored?
+
+      A computer can only work with binary representations of instructions.
+
+      Instructions are a specific encoding of several *0* and *1*.
+
+      The way they have to be encoded depends on the cpu architecture.
+
+      But because binary is not so readable for __humans__, a different
+      representation was invented __Assembler__.
+
+  %section
+    :markdown
+      ## What is Assembler?
+
+    %pre
+      %code.assembler.armasm.hljs
+        :escaped
+          .text
+          .global _start
+          _start:
+              mov r0, #1
+              ldr r1, =message
+              ldr r2, =len
+              mov r7, #4
+              swi 0
+
+              mov r7, #1
+              swi 0
+
+          .data
+          message:
+              .asciz "hello world\n"
+          len = .-messag
+
+    Hello World in <strong>ARM Assembler</strong>
+
+    %aside.notes
+      :markdown
+        - Each instruction is a direct mapping to binary
+        - This not that readable right?
+        - How about the code on the next slide?
+
+  %section
+    %h2
+      Better readable instructions?
+
+    %pre
+      %code.rust.hljs
+        :escaped
+          // This is the main function
+          fn main() {
+              // The statements here will be executed when the compiled binary is called
+
+              // Print text to the console
+              println!("Hello World!");
+          }
+
+    Hello World in <strong>Rust</strong>
+
+    %p.fragment
+      But not understandable by the computer.
+
+    %p.fragment
+      Has to be translated ⇒ we will see later how.
+
+    %p.fragment
+      This is a program.
+
+%section
+  %section
+    :markdown
+      # What is a program
+
+      A program defines in which order a computer has to traverse a given list of
+      instructions.
+
+      Programs can contain a data section, that describes assets that are used
+      by instructions of the program.
+
+      Some instructions inside a program are grouped and have a dedicated purpose.
+
+      These instructions are called an __Algorithm__.
+
+  %section
+    :markdown
+      ## How to create a program?
+
+      To let the computer work on a task, it needs a program.
+
+      A program has some requirements:
+
+      - Program is in memory
+      - Is in binary form
+      - Binary form is the _dialect_ of the `CPU`
+
+  %section
+    :markdown
+      ## How to create *human* readable programs?
+
+      The assembler representation of a program is more understandable, than the
+      binary form.
+
+      But even this is not __developer friendly__ and prone to errors.
+
+      To tackle this problem, there are other reprensatations invented,
+      these are called _programming languages_.
+
+%section
+  %section
+    :markdown
+      # What the hack is a *Programming Language*
+
+  %section
+    :markdown
+      ## A programming language
+
+      Is formal language, to formulate a transformation
+      on a given input to a desired output.
+
+      It is also an abstraction for the instructions of a specific computing
+      system.
+
+  %section
+    :markdown
+      ## Types of programming languages
+
+      - General purpose language
+      - Domain specific language
+
+  %section
+    :markdown
+      ### General purpose languages
+
+      A _general purpose_ programming language is applicable accross multiple
+      applications.
+
+      _(Examples: [http://www.99-bottles-of-beer.net/](99 Bottles of Beer))_
+
+  %section
+    :markdown
+      ### Domain specific languages
+
+      A _domain specific_ language is intended to be used in very specific
+      topics.
+
+      The use case is, to have a formulation that either:
+
+      - Makes the definition of the algorithm easier
+      - Or makes it more understandable
+
+      Or in most cases both.
+
+%section
+  %section
+    :markdown
+      ## Programming paradigm
+
+      A programming paradigm, is a feature or _mentality_ of programming
+      languages.
+
+      It describes the way programming can be done with a particular language.
+
+  %section
+    :markdown
+      ## Imperative programming
+
+      Uses statements to change the state of a computer and focuses mainly on
+      the describing
+
+      _"How a program should operate"_
+
+      Prominent paradigms:
+
+      - procedural
+      - object oriented
+
+  %section
+    :markdown
+      ## Declarative programming
+
+      Is a way to describe the _logic_ of a computation.
+
+      It does not necessarly descibe the _flow_ of the program.
+
+      Prominent paradigms:
+
+      - functional
+      - logic
+      - mathematical
+
+%section
+  %section
+    :markdown
+      ## Procedural programming
+
+  %section
+    :markdown
+      ### Goal of Procedural Programming
+
+      The goal and main desire in programming languages of this paradigm, is
+      modularity on instruction group level.
+
+  %section
+    :markdown
+      ### Main concept of Procedural Programming
+
+      Instruction groups are called blocks.
+      And together with:
+
+      - Name
+      - Parameters
+      - Return value
+
+      called `Procedures`
+
+  %section
+    :markdown
+      ### Key aspects of Procedural Programming
+
+      - Modularity
+      - Scoping
+      - Blocks
+      - Reuseability
+
+  %section
+    :markdown
+      ### Example
+
+    %pre
+      %code.c.hljs
+        :escaped
+          #include <stdio.h>
+
+          int get_number_from_user();
+          int sum_numbers(int number_one, int number_two);
+          void output_number(int number);
+
+          void main(int argc, char* argv) {
+            int number_one,
+                number_two,
+                result;
+
+            number_one = get_number_from_user();
+            number_two = get_number_from_user();
+
+            result = sum_numbers(number_one, number_two);
+
+            output_number(result);
+          }
+
+%section
+  %section
+    :markdown
+      ## Object Oriented Programming [OOP]
+
+      This programming paradigm is based on the concept of _objects_.
+
+      `Objects` can contain:
+
+      - Data, declared as _fields_ (often also called _attributes_)
+      - Functionality, group in _methods_
+
+  %section
+    :markdown
+      ### OOP | Objects & Methods
+
+      A main feature of OOP languages is encapsulation.
+
+      To change a _field_, an `Object` has to provide its own Functionality.
+
+      The make this possible, instances of objects have a notion of `self` or
+      `this`.
+      Referring to itself.
+
+  %section
+    :markdown
+      ### OOP | Object or Objects?
+
+      Some OOP languages have only the awareness of `Object` and there is
+      always only one `Object` out of one definition.
+
+      Most popular languages have awareness for multiple objects of the same
+      definition.
+
+      Two main concepts are used in modern programming languages:
+
+      - Prototype based
+      - Class based
+
+  %section
+    :markdown
+      #### OOP | Prototype based multi object
+
+      In this approach, multiple objects are realised through using an existing
+      object as the base of another object.
+
+      Popular language that uses this concept:
+
+      __JavaScript__
+
+      _Example_
+
+  %section
+    :markdown
+      #### OOP | Class based multi objects
+
+      In this approach it is realised by defining a template for objects.
+
+      And then use this to create new objects.
+
+  %section
+    :markdown
+      ### OOP | Template & Instances
+
+      The possibility to have multiple instances, is realised by having a
+      template.
+
+      From this an object can then be cloned.
+      And is then called an _instance_ of the object definition.
+
+      Often the terms for this concepts are
+
+      - Template / Object Definition: `Class`
+      - Instance / Object: Instance
+
+  %section
+    :markdown
+      ### OOP | Template of Template? Häh?
+
+      Another base concept of object oriented programming languages is,
+      the possibility to have an template include/integrate definitions of
+      another template.
+
+      This concept is called _inheritance_.
+
+  %section
+    :markdown
+      #### OOP | Inheritance
+
+      There are two basic types, how inheritance is integrated in the language.
+
+      - Single Inheritance
+      - Multiple Inheritance
+
+      Inheritance allows to have a hierachy of classes.
+
+  %section
+    :markdown
+      #### OOP | Inheritance
+
+      Aspects of Inheritance:
+
+      - Method resolution
+      - Method overriding
+      - Field access
+      - Encapsulation breach
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      Describes the possibility to have a base class and use the _fields_ and
+      _methods_ of that in other classes.
+
+      __Example__
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      Advantages:
+
+      - Easy to implement in the language
+      - Easy to understand
+      - Efficient in _Method resolution_
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance
+
+      But what todo it two base classes.
+
+      - Multi-Level Inheritance
+      - Interface inclusion
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance | ML-Inheritance
+
+      This concept introduces a third classes that provides the Functionality
+      of the second base class and inherits the rest Functionality of the first
+      base class.
+
+      __Example__
+
+  %section
+    :markdown
+      #### OOP | Single Inheritance | Interface inclusion
+
+      Define a special case of template.
+
+      These template can only have definitions.
+
+      The implementations to these definitions have to be done by the including
+      class.
+
+  %section( id="multi-inheritance" )
+    :markdown
+      #### OOP | Multiple Inheritance
+
+      In this concept it is possible that a class can have multiple base
+      classes.
+
+    %img( src="/graph/oop_inheritance_multi.svg" )
+
+  %section
+    :markdown
+      ### OOP | Prominent Languages
+
+      - C++
+      - C#
+      - Objective-C
+      - Swift
+      - Java
+      - Python
+      - Ruby
+      - Scala
+      - JavaScript
+
+  %section
+    :markdown
+      ## OOP | Actor Model
+
+      The Actor Model is a special variant of OOP.
+
+      An actor is an encapsulated state.
+      Only the actor itself is capable to
+
+      - Change state
+      - Report state to an other actor
+
+  %section
+    :markdown
+      ### OOP | AM | Messages
+
+      All changes in the system to
+
+      - Change state
+      - Create a new Actor
+      - Reporting of state
+
+      is done through the receive of a message to an actor.
+
+  %section
+    :markdown
+      ### OOP | AM | Messages
+
+      The order of messages delivered of received by an actor is not fixed.
+      Is not granted.
+
+  %section
+    :markdown
+      ### OOP | AM | Advantages
+
+      - Good for concurrent systems
+      - Actors can be distributed over multiple connected _computers_
+      - Often makes the functionality and flow of a software system more
+        understandable
+      -
+
+%section
+  %section
+    %h2
+      Functional Programming
+
+  %section
+    :markdown
+      ### FP | Philosopy
+
+      In this, the style of programming to build the structure and functionality
+      is treated as the evaluation of mathematical functions.
+
+  %section
+    :markdown
+      ### FP | Building Blocks
+
+      - Procedures are _Functions_
+      - Pattern Matching
+      - __No__ global state
+      - No OOP-Objects (but lists)
+
+  %section
+    :markdown
+      ### FP | Main aspects
+
+      - It avoids changing state and _mutable_ data.
+      - Functions are __idempotent__
+      - All instrutions are _expressions_
+      - Changing state in a higher scope is only done through return values
+
+  %section
+    :markdown
+      ### FP | Prominent Languages
+
+      - JavaScript
+      - Erlang
+      - Rust
+      - Go
+      - C
+      - Scala
+
+  %section
+    :markdown
+      ### FP | What is an __Expression__?
+
+      Is a formulation that is evaluating to a result.
+
+    %pre
+      %code.elixir.hljs
+        :escaped
+          iex> 2 + 2
+          // 4
+          iex> div(10, 5)
+          // 2
+
+  %section
+    :markdown
+      ### FP | Expressions and Parameters
+
+      Because everything is an __Expression__, functional programming languages
+      have the possibility to use a function as a parameter to a function.
+
+  %section
+    :markdown
+      ### FP | Pattern Matching
+
+      In functional programming, there is a concept called _Pattern Matching_.
+
+      - Assignments are patterns
+      - Function calls are patterns
+
+  %section
+    %h3
+      FP | Pattern Matching | Example
+
+    %pre
+      %code.elixir.hljs
+        :escaped
+          a = "This is a text"
+          b = 2
+
+          b = a
+          // Pattern match error. Left hand side wrong Datatype.
+
+%section
+  %h1
+    %a(href="/control_structures.haml")
+      Next Up: Control Structures
+

@@ -38,3 +38,18 @@ section p {
     vertical-align: middle !important;
   }
 }
+
+.hljs-ln-numbers {
+  user-select: none;
+
+  border-right: 1px solid #000 !important;
+  margin-right: 3px !important;
+}
+
+table.hljs-ln {
+  margin: 0;
+}
+
+.hljs-ln-line {
+  border-bottom: none !important;
+}

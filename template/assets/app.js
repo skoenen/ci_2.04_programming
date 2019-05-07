@@ -2,6 +2,10 @@
 //= require reveal/js/reveal.js
 
 //= require highlight/highlight.pack.js
+//= require highlight/highlightjs-line-numbers.min.js
+//= require dagre.min.js
+//= require dagre-d3.min.js
+//
 
 Reveal.initialize({
   controlsTutorial: false,
@@ -28,12 +32,20 @@ Reveal.initialize({
     // Speaker notes
     { src: '/assets/reveal/plugin/notes/notes.js', async: true },
     // MathJax
-    { src: '/assets/reveal/plugin/math/math.js', async: true }
+    { src: '/assets/reveal/plugin/math/math.js', async: true },
+
+    // Chalkboard drawing
+    { src: '/assets/reveal/plugin/chalkboard/chalkboard.js', async: true }
   ],
   keyboard: {
-    27: function() {
-      location = "/index.html";
-    },
+    27: function() { location = "/index.html"; },
+    67: function() { RevealChalkboard.toggleNotesCanvas() },
+    66: function() { RevealChalkboard.toggleChalkboard() },
+    46: function() { RevealChalkboard.clear() },
+     8: function() { RevealChalkboard.reset() },
+    68: function() { RevealChalkboard.download() },
+  },
+  chalkboard: {
   }
 });
 
@@ -45,7 +57,8 @@ Reveal.addKeyBinding(75, function () { Reveal.down(); });
 
 document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block)
+    hljs.highlightBlock(block);
+    hljs.lineNumbersBlock(block);
   })
 });
 

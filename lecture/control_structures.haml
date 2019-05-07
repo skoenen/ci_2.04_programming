@@ -1,0 +1,95 @@
+%section
+  %h1
+    Control Structures
+
+%section
+  %section
+    :markdown
+      ## What are control structures?
+
+      A _control structure_ is an instruction to change the next executed
+      instructions, in relation to a _condition_.
+
+  %section
+    :markdown
+      ## CS | Types
+
+      - Sequential
+      - Selection
+      - Repetition
+      
+  %section
+    :markdown
+      ### CS | Logical value
+
+      All _control structures_ use a logical value, that is mostly the
+      representation of the result of an expression.
+
+      In most languages there is a special data type called __Boolean__ that
+      can represent either
+
+      - `TRUE` for a positive evaluation
+      - `FALSE` for a negative evaluation
+
+  %section
+    :markdown
+      ### CS | Logical value
+
+      Note:
+
+      Only __C__ does not have a data type fot this.
+      The representation is done with
+
+      - `> 0` for positive evaluation
+      - `<= 0` for negative evaluation
+
+%section
+  :markdown
+    ## CS | Sequential
+
+    The sequential _control structure_, is representing the default flow
+    decision.
+    It determines, that every instruction is executed in the order they are
+    listed in the program.
+
+%section
+  %section
+    :markdown
+      ## CS | Selection
+
+      A selection _control structure_ can be viewed as a branch.
+      In its simplest form it contians two possible lists of instructions that
+      can be executed.
+
+  %section
+    :markdown
+      ### CS | Selection | IF
+
+      The simplest selecting structure is `IF`.
+
+      This control structure has a list of instructions, that are __only__
+      executed if a _condition_ is evaluated to `TRUE`
+
+  %section
+    :markdown
+      ### CS | Selection | IF | Example
+
+    %pre
+      %code.rust.hljs
+        fn main() {
+        }
+
+%section
+  %section
+    :markdown
+      ## CS | Repetition
+
+      A repition _control structure_ can be used to let the computer _repeat_
+      a list of instructions several times.
+
+  %section
+    :markdown
+      ## CS | Repeat | WHILE
+
+      This repetition structure has a list of instructions, that are executed
+      __as long__ as a _condition_ is evaluated to `TRUE`

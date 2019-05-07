@@ -1,0 +1,8 @@
+digraph {
+  base_a [ label="Base A" ];
+  base_b [ label="Base B" ];
+  class [ label="Class" ];
+
+  class -> base_a;
+  class -> base_b;
+}

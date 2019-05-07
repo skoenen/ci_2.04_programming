@@ -1,0 +1,266 @@
+%section
+  %h1
+    Get to know C
+
+%section
+  %section
+    :markdown
+      ## Tools needed
+
+      - Editor
+        - Vim/GVim
+        - Nano
+        - Gedit
+        - (what ever __Text__-Editor you find comfortable)
+  %section
+    :markdown
+      ## Tools needed
+
+      - CLang Compiler
+        - ArchLinux: `# pacman -S clang`
+        - TODO: Commands for other distributions
+
+%section
+  :markdown
+    # Pre Lab Tasks
+
+    1. Have a running Linux Development Environment
+    2. Install CLang Compiler
+        1. `$ sudo pacman -Syu` to update the system
+        2. Reboot the VM (either of:)
+            - Virtualbox Menu "Machine" > "Reset"
+            - `$ sudo reboot`
+        3. `$ sudo pacman -S clang`
+
+%section
+  :markdown
+    ## Additional information
+
+    - `$ man clang`
+
+%section
+  %section
+    %h2
+      Task A
+
+  %section
+    :markdown
+      ### Additional information
+
+      - `$ man printf`
+      - `$ ./<program name to start>`
+
+      #### Starting code
+
+    %pre
+      %code.c.hljs
+        :escaped
+          #include <stdio.h>
+
+          int main() {
+
+            ... YOUR CODE HERE ...;
+
+            return 0;
+          }
+
+  %section
+    :markdown
+      ### The task
+
+      1. Write a small program in a file, that outputs `Hello World!`
+      2. Compile the file to an executable
+      3. Run the executable
+
+%section
+  %section
+    %h2
+      Task B
+
+  %section
+    :markdown
+      ### Additional information
+
+      - `$ man 3 scanf`
+
+      #### Starting code
+
+    %pre
+      %code.c.hljs
+        :escaped
+          #include <stdio.h>
+
+          int main() {
+            char name[32];
+
+            ... YOUR CODE HERE ...;
+
+            printf("Hello %s!\n", name);
+
+            return 0;
+          }
+
+  %section
+    :markdown
+      ## The task
+
+      1. Write a small program in a file, that asks for the name of the user
+        and then outputs `Hello <NAME of User>!`
+      2. Compile the file to an executable
+      3. Run the executable
+
+%section
+  %section
+    %h2 Task C
+
+  %section
+    :markdown
+      ### Additional Information
+
+      - `$ man 2 gettimeofday`
+      - `struct timeval` definition in man page
+      - `$ man 3 ctime`
+      - [Structures in C](https://www.tutorialspoint.com/cprogramming/c_structures.html)
+
+  %section
+    :markdown
+      #### First control structure
+
+      ##### IF
+
+    %pre
+      %code.c.hljs
+        :escaped
+          if(<CONDITION>) {
+            ... Instructions in here will be done if
+                CONDITION evaluates to "True or > 0"
+          }
+
+  %section
+    :markdown
+      ##### IF-ELSE
+
+    %pre
+      %code.c.hljs
+        :escaped
+          if(<CONDITION>) {
+            ... As above ...
+
+          } else {
+            ... Instructions in here will be done if
+                CONDITION evaluates to "False or <= 0"
+          }
+
+  %section
+    :markdown
+      ##### IF-ELSE IF-ELSE
+
+    %pre
+      %code.c.hljs
+        :escaped
+          if(CONDITION) {
+            ... As Above ...
+
+          } else if(CONDITION_2) {
+            ... Instructions in here will be done if:
+                CONDITION evaluates to "False or <= 0"
+                and
+                CONDITION_2 evaluates to "True or > 0"
+
+          } else {
+            ... As above but all IFs above must evaluate to
+                "False or <= 0" ...
+          }
+
+  %section
+    %h3
+      Additional Information
+
+    %h4
+      Starting code
+
+    %pre
+      %code.c.hljs
+        :escaped
+          #include <stdio.h>
+          #include <sys/time.h>
+          #include <time.h>
+
+          int main() {
+            char name[32];
+            struct timeval tv;
+
+            printf("Your name please: ");
+            scanf("%31s", name);
+
+            printf("\n");
+
+            if(gettimeofday(&tv, NULL) == 0) {
+              struct tm *time = localtime( &(tv.tv_sec) );
+
+              if(...) {
+                printf("Good Morning %s!\n", name);
+                return 0;
+
+              } else if(... && ...) {
+                printf("Good Afternoon %s!\n", name);
+                return 0;
+
+              } else {
+                printf("Good Evening %s!\n", name);
+                return 0;
+              }
+
+            } else {
+              printf("Could not get time of day");
+              return 1;
+            }
+
+            return 2;
+          }
+
+  %section
+    :markdown
+      ## The Task
+
+      1. Write into a file, a program that:
+          - Asks for the name of the user
+          - Depending on time of day greets the user differently
+      2. Compile the file to an executable.
+      3. Run the executable.
+
+%section
+  %section
+    :markdown
+      # Task D
+
+      1. Write a program that:
+          - Asks for a sentence from the user.
+          - Outputs the sentence in reverse.
+      2. Compile the program to an executable
+      3. Run the executable
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - Loops:
+
+    %pre
+      %code.c.hljs
+        :escaped
+          while(CONDITION) {
+            ... INSTRUCTIONS ...
+          }
+
+  %section
+    %h3
+      AI | Loops | FOR
+
+    %pre
+      %code.c.hljs
+        :escaped
+          for(INIT COUNTER; CONDITION; POSTACTION) {
+            ... INSTRUCTIONS ...
+          }
+

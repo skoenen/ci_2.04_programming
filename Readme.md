@@ -99,7 +99,7 @@ this if your browser doesn't load the slides up correctly_:
 
 or
 
-http://<IP ADDRESS>:4567`
+`http://<IP ADDRESS>:4567`
 
 You can run the command to:
 

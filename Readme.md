@@ -32,53 +32,62 @@ The output will look something like this:
 
 Important is the first part `ruby 2.5.1...`
 
-### Install maybe needed tools required by __GEMS__
+Remember the version number (without the 'p...' addition it it has this).
 
-Finally, for some reason ruby development tools doesn't seem to come with the
-full installation done above so we have to manually install all of them with
-the following command:
+### Make sure that installed binaries of gems are usable
+
+Change `.profile` in the home folder of your user.
+
+_HINT: I use the **vim** editor, use what you are familiar with_
+
+1. `$ vim $HOME/.profile`
+2. Add following line add the end of the file
+    ```
+    PATH="$HOME/.gem/<RUBY VERSION NUMBER>/bin:$PATH"
+    export PATH
+    ```
+3. Close Terminal or reboot machine
+4. Open new terminal and check:
+    - `$ echo $PATH`
+    - This must include a path similar to: `/home/koenen/.gem/2.6.0/bin`
+
+### Maybe needed: Install development tools
+
+Some _GEMS_ have a native extension (a binary executable) that has to be
+compiled, for this reason, specific tools to do the compilation are needed.
 
 - Ubuntu
   - `$ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev
     libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
     libcurl4-openssl-dev python-software-properties libffi-dev`
 
-## Install Rake
+## Install Bundler
 
-Rake is an task runner.
-The actions to run are defined in the `Rakefile` (capitalization is important).
+_Bundler_ is a package manager that uses the `Gemfile` to know which packages
+needs to be installed to run an application.
 
-To run the _SlideServer_ and to be able to look at the slides, like in the
-lecture, the command `$ rake` can be used.
+`$ GEM_HOME=/home/<username>/.gem gem install bundler`
 
-To do so we have to install __Rake__ with the ruby internal package manager
-`gem`.
+## Install Dependencies of the Slide Server
 
-1. Install rake with the following command: `$ gem install rake`
-2. Install _Bundler_: `$ gem install bundler`
+Go to the folder of the slides repository and run the command:
 
-To verify that the installation it was successful run the following command
-which will print the rake version:
-
-`rake -V`
-
-The output will look something like this:
-
-`rake, version 12.3.2`
+`$ bundler install --deployment`
 
 ## Run the slide server
 
-Now you can use
+Now you can use, inside the slide repository
 
-`$ rake`
+`$ bundler exec rackup -p 4567`
 
-inside the cloned folder where the `Rakefile` is located, to run the _SlideServer_
-for the lecture slides.
+To start a webserver that is serving all contents.
+The output should be similar to:
 
-If everything runs smoothly, the last line of your console message should have
-a similar message to this:
-
-`[2019-04-30 00:18:40] INFO WEBrick::HTTPServer#start: pid=596 port=4567`
+```
+[2019-05-07 16:21:24] INFO  WEBrick 1.4.2
+[2019-05-07 16:21:24] INFO  ruby 2.6.3 (2019-04-16) [x86_64-linux]
+[2019-05-07 16:21:24] INFO  WEBrick::HTTPServer#start: pid=12683 port=4567
+```
 
 This means you can access the slides on your browser by visiting:
 
@@ -88,19 +97,21 @@ this if your browser doesn't load the slides up correctly_:
 
 [http://localhost:4567](http://localhost:4567)
 
-### Run the slide server for other parts
+or
 
-There are two more content folders
+http://<IP ADDRESS>:4567`
 
-- `excercise`
-- `practica`
+You can run the command to:
 
-To run and have a look at the slides of these parts you can use:
+`$ sudo bundler exec rackup -p 80`
 
-- `$ rake excercise`
-- `$ rake practica`
+To let the server run on standard HTTP Port. And then use
 
-These commands are starting a similar server on the same port.
+[http://localhost](http://localhost)
+
+or
+
+`http://<IP ADDRESS>`
 
 # Reading slides without server
 

@@ -32,7 +32,7 @@ The output will look something like this:
 
 Important is the first part `ruby 2.5.1...`
 
-Remember the version number (without the 'p...' addition it it has this).
+__Remember the version number (without the 'p...' addition it it has this).__
 
 ### Make sure that installed binaries of gems are usable
 

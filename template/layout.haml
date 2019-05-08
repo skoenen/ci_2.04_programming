@@ -2,9 +2,9 @@
 %html
   %head
     %title= @title
-    %link{ rel: "stylesheet", href: "/assets/reveal/css/reveal.css" }
-    %link{ rel: "stylesheet", href: "/assets/reveal/css/theme/solarized.css"  }
-    %link{ rel: "stylesheet", href: "/assets/app.css"}
+    %link{ rel: "stylesheet", href: url("/assets/reveal/css/reveal.css") }
+    %link{ rel: "stylesheet", href: url("/assets/reveal/css/theme/solarized.css") }
+    %link{ rel: "stylesheet", href: url("/assets/app.css") }
 
   %body.reveal
     .header
@@ -16,7 +16,7 @@
       %img.logo{ src: url("assets/hsrw.svg") }
 
       .index
-        %a(href="/index.html")
+        %a{ href: url("/index.html") }
 
-    %script{ src: "/assets/app.js"}
+    %script{ src: url("/assets/app.js") }
 

@@ -17,7 +17,7 @@
       - Sequential
       - Selection
       - Repetition
-      
+
   %section
     :markdown
       ### CS | Logical value
@@ -70,14 +70,99 @@
       This control structure has a list of instructions, that are __only__
       executed if a _condition_ is evaluated to `TRUE`
 
+      These list of instructions are also called _Branches_
+
   %section
-    :markdown
-      ### CS | Selection | IF | Example
+    %h3
+      CS | Selection | IF | Example
 
     %pre
-      %code.rust.hljs
-        fn main() {
-        }
+      %code.java.hljs
+        :escaped
+          public class Server {
+            // ... Other code left out ...
+
+            public void handle() {
+              if( this.running == true) {
+                Connection con = this.accept();
+                con.send(lecture.render());
+                con.close();
+              }
+            }
+          }
+
+  %section
+    :markdown
+      ### CS | Selection | IF-ELSE
+
+      This selection control structure has two branches.
+
+      The firs branch is executed when the __condition__ evaluates to _TRUE_
+      and the second branch is executed when the __condition__ evaluates to
+      __FALSE__.
+
+  %section
+    %h3
+      CS | Selection | IF-ELSE | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class Server {
+            // ... Other code left out ...
+
+            public void handle(Request request)  {
+              if(request.type == this.type) {
+                Response response = new Response(request);
+
+                response.addContent("This is handled.");
+                request.client.send(response);
+
+              } else {
+                this.handleManager.handle(request, this);
+              }
+            }
+          }
+
+  %section
+    :markdown
+      ### CS | Selection | IF-ELSE IF-ELSE
+
+      This variant of the selection control structure starts with an _IF_
+      and then can have __one__ ore __more__ _ELSE IF__ branches.
+
+      An _ELSE_ branch at the end is considered __best practice__ but not
+      necessary.
+
+  %section
+    %h3
+      CS | Selection | IF-ELSE IF-ELSE
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class Server {
+            // ... Other code left out ...
+
+            public void handle(Request request) {
+              Response response;
+              Client client = request.client;
+
+              // ... prepare response ...
+
+              if(request.format == "JSON") {
+                response.body = JSON.format("JSON", "2.3.0", response.body)
+              } else if(request.format == "YAML") {
+                response.body = this.yamlFormatter.format(response.body);
+              } else if(request.format == "plaintext") {
+                response.body = this.htmlParser.strip(response.body);
+              } else {
+                response.body = this.htmlParser.tidy(response.body);
+              }
+
+              client.send(response);
+            }
+          }
 
 %section
   %section

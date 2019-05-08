@@ -26,5 +26,6 @@ vendor/
 
 build/
 .gradle/
+.settings/
 
 *.class

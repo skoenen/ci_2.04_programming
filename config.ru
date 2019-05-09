@@ -4,6 +4,8 @@ require 'sinatra/base'
 require 'sprockets'
 require 'ruby-graphviz'
 
+puts ENV.inspect
+
 class SlideServer < Sinatra::Base
   set :root, "base"
   set :views, "base"
@@ -60,4 +62,13 @@ class SlideServer < Sinatra::Base
   end
 end
 
-run SlideServer
+case ENV['RACK_ENV']
+  when "ami_server"
+    map("/ci/2.04_programming") do
+      run SlideServer
+    end
+  else
+    map("/") do
+      run SlideServer
+    end
+end

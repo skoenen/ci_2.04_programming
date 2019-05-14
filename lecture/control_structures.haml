@@ -37,7 +37,7 @@
 
       Note:
 
-      Only __C__ does not have a data type fot this.
+      Only __C__ does not have a data type for this.
       The representation is done with
 
       - `> 0` for positive evaluation
@@ -164,6 +164,119 @@
             }
           }
 
+  %section
+    :markdown
+      ### CS | Selection | Switch-Case
+
+      The _switch-case_ control structure is build out of one _CONDITION_ and
+      several branches.
+
+      The execution of a branch depends on the selection value of the
+      associated case.
+
+      The selection value must be a result of the _CONDITION_.
+
+  %section
+    %h4
+      CS | Selection | Switch-Case | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class Server {
+            // ... Other code left out ...
+
+            public void handlet(Request request) {
+              Response response;
+              Client client = request.client;
+
+              Localtime time = LocalTime.now();
+
+              switch(time.getHour()) {
+                case 22:
+                  response.body.addLine("It is twenty two o'clock.");
+                  break;
+                case 23:
+                  response.body.addLine("It is twenty three o'clock.");
+                  berak;
+                default:
+                  response.body.addLine("The answer is forty two.");
+                  break;
+              }
+            }
+          }
+
+%section
+  %section
+    :markdown
+      ### CS | Selection | Realisation on CPU
+
+      How does a selection control structure work on a cpu that can only execute
+      instruction after instruction?
+
+  %section
+    :markdown
+      ### CS | Selection | View on CPU
+
+      Needed:
+
+      - _CONDITION_
+      - Evaluation of _CONDITION_ with a result
+      - _BRANCH_ / _BRANCHES_
+
+  %section
+    :markdown
+      ### CS | Selection | View on CPU
+
+      The CPU needs a
+
+      - Stackpointer
+      - Instruction Register
+      - Flags
+
+      to be able to support branching control structures.
+
+  %section
+    :markdown
+      ### CS | Selection | View on CPU
+
+      The important flags for this are:
+
+      | N | NEGATIVE | result of last operation was negative |
+      | Z | ZERO | result of last operation was zero |
+      | C | CARRY | Last operation result was bigger than _REGISTER SIZE_ |
+      | V | OVERFLOW | Last operation result was bigger than _REGISTER SIZE_ -
+          1 for signed values |
+
+
+  %section
+    :markdown
+      ### CS | Selection | View on CPU
+
+      Steps to realise a selection and branch
+
+      1. Evaluate _CONDITION_
+      2. Use _jump instruction_ to go to branch code
+      3. Do branch code
+      4. Jump back to instruction after _jump instruction_
+
+  %section
+    %h3
+      CS | Selection | View on CPU
+
+    %pre
+      %code.armasm.hljs
+        :escaped
+          mov r1, #5 ; r1 = 5
+          mov r2, #3 ; r2 = 3
+
+          cmp r1, r2 ; r1 == r2
+
+          jne [r4]
+          jeq [r3]
+
+          ; ... other code ...
+
 %section
   %section
     :markdown
@@ -178,3 +291,96 @@
 
       This repetition structure has a list of instructions, that are executed
       __as long__ as a _condition_ is evaluated to `TRUE`
+
+  %section
+    %h3
+      CS | Repetition | WHILE | Example
+
+    %pre
+      %code.java.hljs
+        :markdown
+          int counter = 9;
+
+          while(counter >= 0) {
+            System.out.println("%n", counter);
+          }
+
+  %section
+    :markdown
+      ## CS | Repetition | FOR
+
+      The __FOR__ repetition instruction has three parameters.
+
+      The branch of this loop is done, for as long as the _condition_ is true.
+
+      1. Preparation
+      2. Condition
+      3. Post operation
+
+  %section
+    %h3
+      CS | Repetition | FOR | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public void iterate(Object visitor) {
+            for(Iterator iter = this.elements.iter(),
+                Element elem = iter.next();
+                not iter.eof();
+                elem = iter.next) {
+
+              visitor.handle(elem);
+            }
+          }
+
+  %section
+    :markdown
+      ## CS | Repetition | FOR-EACH
+
+      To handle all elements in a list, there is a special version of the _FOR_
+      loop.
+
+      The _FOR-EACH_ loop is specifically intended to be used to iterate over
+      all elements of a list.
+
+      It avoids the need to define a counter and also assign the next element to
+      the working variable.
+
+      This circumvents two often encountered problems in software development.
+
+  %section
+    :markdown
+      ## CS | Repetition | UNTIL
+
+      The _until_ loop is the _conditionally_ opposite to the _while_ loop.
+
+      The branch is executed, until the _condition_ evaluates to _TRUE_.
+
+      _Note:_ not all programming languages provide this.
+
+  %section
+    :markdown
+      ## CS | Repetition | DO-WHILE
+
+      This is a variant of the _while_ loop, that firstly executes the branch
+      and after this evaluates the condition and either
+
+      - Repeats branch
+      - Process further with _singular_ control
+
+  %section
+    :markdown
+      ## CS | Repetition | DO-WHILE
+
+      Advantage is, that the _condition_ can check if an assignment was done
+      correctly, or try it again.
+
+      To exit a retry, the _condition_ must have a second part or a flag
+      variable.
+
+  %section
+    :markdown
+      ## CS | Repetition | DO-UNTIL
+
+

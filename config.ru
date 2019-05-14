@@ -41,7 +41,7 @@ class SlideServer < Sinatra::Base
     body output
   end
 
-  get "/" do
+  get /\/(index\..*)/i do
     haml :index,
       :layout => :layout,
       :layout_options => { views:  "template" }

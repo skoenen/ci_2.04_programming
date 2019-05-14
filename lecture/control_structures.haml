@@ -257,6 +257,7 @@
 
       1. Evaluate _CONDITION_
       2. Use _jump instruction_ to go to branch code
+          - Use Flags to determine the result
       3. Do branch code
       4. Jump back to instruction after _jump instruction_
 
@@ -380,7 +381,65 @@
       variable.
 
   %section
+    %h3
+      CS | Repetition | DO-WHILE | EXAMPLE
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class Logger {
+            private File logFile;
+
+            public Logger(String logFilename) {
+              if(logFilename != NULL) {
+                logFile = new File(logFilename, "w+");
+
+              } else {
+                logFile = new File("logger.log", "w+");
+
+              }
+              this.open();
+            }
+
+            public void open() {
+              do {
+                logFile.open();
+              } while(not logFile.isOpen());
+            }
+          }
+
+  %section
     :markdown
       ## CS | Repetition | DO-UNTIL
 
+      Similar to a _DO-WHILE_ but it is repeating the branch, until a condition
+      evaluates to true.
+
+  %section
+    %h3
+      CS | Repetition | DO-UNTIL | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class Logger {
+            private File logFile;
+
+            public Logger(String logFilename) {
+              if(logFilename != NULL) {
+                logFile = new File(logFilename, "w+");
+
+              } else {
+                logFile = new File("logger.log", "w+");
+
+              }
+              this.open();
+            }
+
+            public void open() {
+              do {
+                logFile.open();
+              } until(logFile.isOpen());
+            }
+          }
 

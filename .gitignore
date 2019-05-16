@@ -25,6 +25,8 @@ programming-*.tar
 vendor/
 .bundle/
 
+.vagrant
+
 build/
 .gradle/
 .settings/

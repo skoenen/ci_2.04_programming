@@ -1,0 +1,103 @@
+---
+- hosts: all
+  tasks:
+    #- name: update system
+      #become: yes
+      #pacman:
+        #update_cache: yes
+        #upgrade: yes
+
+    #- name: reboot after upgrade
+      #become: yes
+      #reboot:
+        #msg: "Reboot after upgrade"
+
+    - name: install necessary packages
+      become: yes
+      pacman:
+        name: ruby, git, openssl, base-devel
+
+    - name: install bundler
+      become: yes
+      gem:
+        name: bundler
+        user_install: no
+
+    #- name: ensure ruby gem binaries are accessible
+      #become: yes
+      #copy:
+        #src: /vagrant/lib/vagrant/templates/profile_d_ruby_gems_path.sh
+        #dest: /etc/profile.d/ruby_gems_path.sh
+        #owner: root
+        #group: root
+        #mode: 0644
+
+    - name: ensure http group
+      become: yes
+      group:
+        name: http
+        gid: 80
+
+    - name: ensure http user
+      become: yes
+      user:
+        name: http
+        uid: 80
+        group: http
+        home: /srv/http
+        append: true
+
+    - name: ensure server path
+      become: yes
+      file:
+        state: directory
+        path: /srv/http/
+        owner: http
+        group: http
+        mode: u+rwx,g+rwx,o+rx
+
+    - name: clone slide repo
+      become: yes
+      become_method: sudo
+      become_user: http
+      git:
+        repo: https://github.com/skoenen/ci_2.04_programming
+        dest: /srv/http/htdocs
+
+    #- name: ensure permissions on repo
+      #file:
+        #path: /srv/http/htdocs
+        #owner: http
+        #group: http
+        #mode: u+rwx,g+rwx,o+rx
+        #recurse: yes
+
+    - name: install server dependencies
+      become: yes
+      become_method: sudo
+      become_user: http
+      bundler:
+        chdir: /srv/http/htdocs
+        deployment_mode: yes
+      environment:
+        PATH: "/usr/lib/ruby/gems/2.6.0/bin:{{ansible_env.PATH}}"
+
+    - name: ensure service definition
+      become: yes
+      copy:
+        src: /vagrant/lib/vagrant/templates/rack_service.service
+        dest: /usr/lib/systemd/system/slideserver.service
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: start slide server
+      become: yes
+      become_method: sudo
+
+      systemd:
+        enabled: yes
+        name: slideserver.service
+        state: restarted
+        daemon_reload: yes
+

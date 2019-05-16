@@ -1,0 +1,21 @@
+[Unit]
+Description=Slide Server
+After=network.target
+
+[Service]
+Type=simple
+
+User=http
+Group=http
+
+WorkingDirectory=/srv/http/htdocs
+ExecStart=/usr/bin/bundle exec rackup -p 4567 -E production
+
+Restart=always
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+

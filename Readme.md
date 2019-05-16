@@ -4,6 +4,11 @@ This guide is meant for those who have access to a Linux CLI either on
 arch-linux on virtual box, ubuntu cli for windows or dual boot windows/linux
 system.
 
+There are two ways now to have a running slide server:
+
+1. Follow the instructions below
+2. Use Vagrant [Vagrant Based Instructions](Vagrant_SlideServer_Instructions.md)
+
 ## Get the slide contents
 
 Also this guide assumes you must have a

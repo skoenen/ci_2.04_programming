@@ -4,8 +4,6 @@ require 'sinatra/base'
 require 'sprockets'
 require 'ruby-graphviz'
 
-puts ENV.inspect
-
 class SlideServer < Sinatra::Base
   set :root, "base"
   set :views, "base"
@@ -13,6 +11,8 @@ class SlideServer < Sinatra::Base
   set :sprockets, Sprockets::Environment.new
   settings.sprockets.css_compressor = :scss
   settings.sprockets.append_path('template/assets')
+
+  set :bind, "::"
 
   get "/assets/*" do
     env['PATH_INFO'].sub!('/assets', '')

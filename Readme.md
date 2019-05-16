@@ -113,6 +113,18 @@ or
 
 `http://<IP ADDRESS>`
 
+## Printing slides.
+
+You are now able to print a pdf out of the slides.
+Use _Chrome_ or _Chromium_ and go to:
+
+- For Lecture:
+    [http://localhost:4567/lecture?print-pdf](http://localhost:4567/lecture?print-pdf)
+- For Lab/Practica:
+    [http://localhost:4567/practica?print-pdf](http://localhost:4567/practica?print-pdf)
+
+And after that use the printing function of the browser either to paper or pdf.
+
 # Reading slides without server
 
 You can also directly have a look at the files in the corresponding content

@@ -16,6 +16,7 @@ Reveal.initialize({
   overview: true,
   slideNumber: 'c/t',
   center: false,
+  pdfSeparateFragments: false,
   dependencies: [
     { src: '/assets/reveal/lib/js/classList.js', condition: function() {
         return !document.body.classList;

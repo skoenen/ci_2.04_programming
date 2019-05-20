@@ -86,6 +86,31 @@
 
       - [java.time.LocalTime](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html)
 
+  %section
+    %h3
+      Starting Code
+
+    %pre
+      %code.java.hljs
+        :escaped
+          public class HelloTime {
+            public static void main(String[] argv) {
+              // ... Get the current `LocalTime`
+
+              // Build the correct condition/conditions
+              // HINT: && ||
+              if(...) {
+                printf("Good Morning %s!\n", name);
+
+              } else if(... && ...) {
+                printf("Good Afternoon %s!\n", name);
+
+              } else {
+                printf("Good Evening %s!\n", name);
+              }
+            }
+          }
+
 %section
   %section
     :markdown
@@ -148,6 +173,8 @@
 
       - _Hint:_ Look in the `build` folder
       - _Attention:_ CLASS_NAME is not enough to run the program.
+          You have to specify the new complete Name of the class.
+          ex.: `org.hsrw.ci.2.04_programming.2019ss.CLASS_NAME`
       - Java Documentation of `java.time` and `String`
 
   %section

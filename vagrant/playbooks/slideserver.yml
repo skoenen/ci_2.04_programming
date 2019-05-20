@@ -1,36 +1,16 @@
 ---
 - hosts: all
   tasks:
-    #- name: update system
-      #become: yes
-      #pacman:
-        #update_cache: yes
-        #upgrade: yes
-
-    #- name: reboot after upgrade
-      #become: yes
-      #reboot:
-        #msg: "Reboot after upgrade"
-
     - name: install necessary packages
       become: yes
       pacman:
-        name: ruby, git, openssl, base-devel
+        name: ruby, git, openssl, base-devel, fcron
 
     - name: install bundler
       become: yes
       gem:
         name: bundler
         user_install: no
-
-    #- name: ensure ruby gem binaries are accessible
-      #become: yes
-      #copy:
-        #src: /vagrant/lib/vagrant/templates/profile_d_ruby_gems_path.sh
-        #dest: /etc/profile.d/ruby_gems_path.sh
-        #owner: root
-        #group: root
-        #mode: 0644
 
     - name: ensure http group
       become: yes
@@ -64,14 +44,6 @@
         repo: https://github.com/skoenen/ci_2.04_programming
         dest: /srv/http/htdocs
 
-    #- name: ensure permissions on repo
-      #file:
-        #path: /srv/http/htdocs
-        #owner: http
-        #group: http
-        #mode: u+rwx,g+rwx,o+rx
-        #recurse: yes
-
     - name: install server dependencies
       become: yes
       become_method: sudo
@@ -85,7 +57,7 @@
     - name: ensure service definition
       become: yes
       copy:
-        src: /vagrant/lib/vagrant/templates/rack_service.service
+        src: /srv/http/htdocs/vagrant/slideserver/templates/rack_service.service
         dest: /usr/lib/systemd/system/slideserver.service
         owner: root
         group: root
@@ -100,4 +72,15 @@
         name: slideserver.service
         state: restarted
         daemon_reload: yes
+
+    - name: enable update of repo
+      become: yes
+      become_method: sudo
+      become_user: http
+
+      cron:
+        weekday: 5
+        minute: 23
+        hour: 13
+        job: '/srv/http/htdocs/vagrant/scripts/update_repo.sh'
 

@@ -15,4 +15,9 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "development_gui", primary: true do |dev_env|
+    dev_env.vm.provision "ansible_local" do |ansible|
+      ansible.playbook = "vagrant/playbooks/development_gui.yml"
+    end
+  end
 end

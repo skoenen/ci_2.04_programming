@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: install necessary packages
+      become: yes
+      pacman:
+        name: clang, base-devel, jdk-openjdk, jre-openjdk-headless, git
+

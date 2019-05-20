@@ -1,0 +1,8 @@
+---
+- import_playbook: development_environment.yml
+- hosts: all
+  tasks:
+    - name: install desktop environment
+      become: yes
+      pacman:
+        name: xfce4, xfce4-goodies, lxdm-gtk3

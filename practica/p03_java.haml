@@ -123,8 +123,63 @@
 
 %section
   %section
+    %h1
+      Task E
+
+  %section
     :markdown
-      # Task E
+      ## Packages in Java
+
+      A package in java is a concept to seperate class from others.
+
+      Makes it possible to use the same name in different contexts
+
+    %pre
+      %code.java.hljs
+        :escaped
+          package org.hsrw.ci.2.04_programming.2019ss
+
+          public class Example {
+          }
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - _Hint:_ Look in the `build` folder
+      - _Attention:_ CLASS_NAME is not enough to run the program.
+      - Java Documentation of `java.time` and `String`
+
+  %section
+    %h3
+      Start Code
+
+    %pre
+      %code.java.hljs
+        :escaped
+          package org.hsrw.ci.2.04_programming.2019ss
+
+          public class ... {
+            public static int main(String[] argv) {
+              ...
+
+              return 0;
+            }
+          }
+
+  %section
+    :markdown
+      ## The Task
+
+      1. Write a java program in a file that calculates the amount of seconds
+          between two given timestamps. `09:15 11:15`
+      2. Compile the program to java bytecode
+      3. Use the jvm to run the java bytecode
+
+%section
+  %section
+    :markdown
+      # Task F
 
       This time we will learn to make our live easier with a _Build Script_
 

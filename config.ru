@@ -14,6 +14,22 @@ class SlideServer < Sinatra::Base
 
   set :bind, "::"
 
+  helpers do
+    def blockcite(text, caption, src)
+      haml = <<-HAML
+%blockquote(cite="#{src}")
+  %p.text
+    :escaped
+      #{text}
+  %p.caption
+    %a{ href: "#{src}", target: "_blank"}
+      #{caption}
+      HAML
+
+      Haml::Engine.new(haml).render
+    end
+  end
+
   get "/assets/*" do
     env['PATH_INFO'].sub!('/assets', '')
     settings.sprockets.call(env)

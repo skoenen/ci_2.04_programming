@@ -53,3 +53,23 @@ table.hljs-ln {
 .hljs-ln-line {
   border-bottom: none !important;
 }
+
+blockquote {
+  //font-family: "monospace" !important;
+  .text {
+    color: black;
+    text-align: justify !important;
+    font-style: italic;
+    background: lighten(lightgrey, 0.8) !important;
+    margin: 0;
+  }
+
+  .caption {
+    font-size: 0.7em;
+    background-color: #fdf6e3 !important;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+}
+

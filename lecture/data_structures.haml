@@ -27,17 +27,108 @@
 
   %section
     :markdown
-      ### Primitive Data
+      ## Primitive Data
 
       This form of data is a representation with no or minimal _Meta-Data_.
 
   %section
     :markdown
-      ### Structured Data
+      ## Structured Data
 
       Descibes data that is grouped and has additional meaning attached.
       Either due to the
 
       - Declaration naming _or_
       - How data is grouped
+
+  %section
+    :markdown
+      ### SD | Meta-Data by declaration
+
+      Structural infomation about the data results by the definition as an
+      array of _int_ values.
+
+    %pre
+      %code.c.hljs
+        :escaped
+          int arr[32];
+
+          arr[0];
+          arr[1]
+
+    :markdown
+      _Hint:_ Pseudo Code
+
+
+  %section
+    :markdown
+      ### SD | Meta-Data by grouping
+
+    %pre
+      %code.java.hljs
+        :escaped
+          class Company {
+            Adress adress;
+            Contact contact;
+            Person[] employees;
+          }
+
+          class Adress {
+            Street street;
+            Town town;
+          }
+
+          class Street {
+            String streetName;
+            String streetNumber;
+          }
+
+          class Contact {
+            String position;
+            Person person;
+          }
+
+          class Person {
+            String name;
+            String eMail;
+          }
+
+  %section
+    :markdown
+      ### Types of structured Data
+
+      - Packages
+      - Collections
+
+%section
+  %section
+    :markdown
+      # Packages
+
+      A package is a structure with finite amount of attributes.
+
+      Often also called:
+
+      - Object
+      - Structure
+      - Unit
+      - Box
+
+      __Important:__ Do not confuse with Java `package`
+
+  %section
+    %h2
+      Package Example
+
+    %pre
+      %code.java.hljs
+        class Lecture {
+          int numberOfPages;
+          String[] pages;
+        }
+
+  %section
+    :markdown
+
+
 

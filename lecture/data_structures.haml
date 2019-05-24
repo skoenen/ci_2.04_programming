@@ -7,7 +7,16 @@
     :markdown
       ## What is a data?
 
-      In programming the material to work with can be classified in two types
+      Computers need a representation of real world characteristics in binary
+      form, to be able to operate on this characteristics.
+
+      This characteristics/material to work with, is called data.
+
+  %section
+    :markdown
+      ## Types of _Data_
+
+      Data can be classified in two types:
 
       1. Primitive Data
       2. Structured Data
@@ -30,6 +39,11 @@
       ## Primitive Data
 
       This form of data is a representation with no or minimal _Meta-Data_.
+
+      Often also called __scalar__ values.
+
+      And __one__ manifestation of this represents also only __one__ very explicit
+      specific characteristic value.
 
   %section
     :markdown
@@ -122,20 +136,29 @@
 
     %pre
       %code.java.hljs
-        class Lecture {
-          int numberOfPages;
-          String[] pages;
-        }
+        :escaped
+          class Lecture {
+            int numberOfPages;
+            String[] pages;
+          }
 
     %p
       The Lecture package has two attributes
 
   %section
     :markdown
-      ## Packages Advantages
+      ## Packages | Advantages
 
-      - Memory footprint is now
+      - Memory footprint is low
+      - Easy to understand
 
+  %section
+    :markdown
+      ## Packages | Dis-Advantages
+
+      - Fixed amount of elements
+      - Special purpose, no versatile use
+      - No easily implemented
 
 %section
   %section
@@ -149,7 +172,8 @@
 
       1. Ordered Collections
       2. Unordered Collections
-      3. Assoziative Collections
+      3. Associative Collections
+      4. Tree Collections
 
   %section
     :markdown
@@ -168,6 +192,168 @@
       collection.
 
       Or the position where an element is put into the collection, has to be
-      expicitly given.
+      explicitly given.
+
+  %section
+    :markdown
+      ### Ordered Collections
+
+      This type of collection is the easiest form to implement.
+
+      The reason is the ordered nature of _RAM_ inside a computer.
+
+  %section
+    :markdown
+      ### Ordered Collections | Types
+
+      - Arrays
+      - Lists
+      - Queues
+
+  %section
+    :markdown
+      ### Ordered Collections | Advantages
+
+      - Easy to implement
+      - Efficient in _RAM_
+      - Easy to understand
+      - versatile
+
+  %section
+    :markdown
+      ### Ordered Collections | Dis-Advantages
+
+      - Slow find of specific element
+          - In _worst-case_ -> iterate over all elements
+      - Direct remove is only possible with alteration of the complete collection
+      - Often needs additional _RAM_ to build the collection
+
+  %section
+    :markdown
+      ## Unordered Collections
+
+      This type of collection do not have an intrinsic order of elements, and
+      also do not guaranty an order.
+
+  %section
+    :markdown
+      ### Unordered Collections | Types
+
+      - Hash Lists
+      - Ring Lists
+      - Sets
+
+  %section
+    :markdown
+      ## Associative Collections
+
+      These kind of collections are a variant of unordered collections.
+
+      Each element is accessible through an other data type that acts as a key.
+
+      That is the reason why these data structures are often called _key-value_
+      storages.
+
+  %section
+    :markdown
+      ### Associative Collections | Types
+
+      - Map
+      - Sets
+      - Multi-Sets
+
+  %section
+    :markdown
+      ## Tree Collections
+
+      Inside a tree collection, each element has a reference to one ore more
+      other elements.
+
+      Where lists there is always one __Head__ element and one __Tail__ element,
+      in trees there is also one __Head__, but _several_ possible __Tail__
+      elements.
+
+  %section
+    :markdown
+      ### Tree Collections | Types
+
+      - Tree
+      - Binary Tree
+      - Graph
+
+%section
+  %section
+    %h1
+      Typing System
+
+  %section
+    :markdown
+      # Typing System
+
+      A _Typing System_ describes the way, a specific programming language handles
+      data structures.
+
+      Currently (2019-05-24) there are two types of _Typing Systems_:
+
+      1. Static Typed System
+      2. Dynamic Typed System
+
+  %section
+    %h2 TS | Definitions 1
+
+    %dl
+      = definition "Variable", "A handle to work with a data structure"
+      = definition "Declaration", "The point where a variable is made known to the system"
+      = definition "Instantitiation", "The point where a declared variable gets its value"
+
+  %section
+    %h2 TS | Definitions 2
+
+    %dl
+      = definition "Allocation", "The process to reserve RAM for data."
+      = definition "Freeing", "The process of make a reserved RAM section free for other use."
+
+  %section
+    %h2 TS | Definitions 3
+
+    %dl
+      = definition "Reference", "An indication to a value stored elsewhere."
+      = definition "Dereference", "Process to access the value with a reference." |
+        "\nOften also called <em>Pointer</em>." |
+
+  %section
+    :markdown
+      ## Static Typed System
+
+      In a _static_ type system the _Type_ of a data value and/or the reference
+      have to be explicitly declared on time of declaration.
+
+      Also it is not possible to assign an other data type value then the
+      declared one.
+
+  %section
+    :markdown
+      ## Static Typed System | Implicit Typed System
+
+      In an implicit static type system, the data type of a variable is
+      determined by the compiler at the first instantiation/assignment of a
+      value to it.
+
+%section
+  %section
+    %h2
+      Data Structure Implementations
+
+  %section
+    :markdown
+      ## DSI | Arrays
+
+      An _Array_ is a continues collection of values.
+
+      The type of this values depend on the __Typing System__ of the _programming
+      language_.
+
+
+
 
 

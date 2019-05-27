@@ -276,3 +276,51 @@
       3. Which task to use to compile the source code?
       4. Which task to use to run the program?
 
+%section
+  %section
+    :markdown
+      # Task G
+
+      Constructor are special methods of java classes.
+
+      They handle tasks that have to be done on instantiation.
+
+      Constructers are Methods with the class name as method name and 
+      in most cases are public.
+
+      Constructors are called by the java virtual machine on `new ClassName()`
+
+  %section
+    :markdown
+      ## Additional Information
+      
+      - Have a copy of the gradle_base
+          `$ cp -r gradle_base task_g`
+
+    %pre
+      %code.java.hljs
+        :escaped
+          package org.hsrw.ci_2_04_programming
+
+          class A {
+
+            public A(/* ... PARAMETERS ... */) {
+              // ... Class instantiation code ...
+            }
+          }
+
+          A anInstance = new A(/* ... Parameters ... */);
+
+  %section
+    :markdown
+      ## The Task
+
+      1. Make a class ouf of Task C, provide a public method `greet`
+      2. The constructor should store the string in an internal string attribute.
+      3. In the main method of `App.java` instantiate the class 3 times with:
+          - "Ford Perfect"
+          - "Arthur Dent"
+          - "Marvin"
+      4. Use the `greet` method of each instance to get back a string and output 
+          that string to console.
+      3. Use gradle to compile and run the code.

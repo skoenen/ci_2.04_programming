@@ -32,7 +32,8 @@
     :markdown
       # Task B
 
-      Build a `Linked List` class for __any__ data type values;
+      1. Build a `Linked List` class for __any__ data type values;
+      2. Use the linked list to store 4234 elements of random Integers
 
   %section
     :markdown
@@ -43,10 +44,41 @@
     %pre
       %code.java.hljs
         :escaped
+          package org.hsrw.ci_2_04_programming.ds
+
           class Basic<GENERIC> {
             GENERIC attribute = new GENERIC();
           }
 
           Basic<GENERIC> variable = new Base<GENERIC>();
 
+%section
+  %section
+    :markdown
+      # Task C
 
+      1. Build a `Hash Map`, use an `Array` as the base.
+
+  %section
+    :markdown
+      ## Additional Information
+
+      - A _hash_ function is needed to convert the _Key_ into an index of the
+          array.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          package org.hsrw.ci_2_04_programming.ds
+
+          class HashMap<GENERIC_KEY, GENERIC_VALUE> {
+              GENERIC_VALUE storage[START_SPACE];
+
+              public HashMap
+
+              protected int hashOf(GENERIC_KEY key) {
+                // ... Any algorithm you find suitable ...
+              }
+
+
+          }

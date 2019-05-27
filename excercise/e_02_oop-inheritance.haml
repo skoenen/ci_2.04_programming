@@ -1,9 +1,12 @@
 %section
   %section
     :markdown
-      # Excercise 02 | Inheritance
+      # Excercise 02
+  %section
+    :markdown
+      ## Inheritance
 
-      ## Purpose:
+      Purpose:
 
       Learn the usage, advantage and disadvantage of inheritance in
       object-oriented programming languages
@@ -29,16 +32,14 @@
     :markdown
       ## Task A
 
+      _Consider **single** inheritance_
+
       Draw the class hierarchy of zoo animals:
 
-      1. Elefant
-      2. Lion
-      3. Penguin
-      4. Pidgeon
-      5. Dog
-      6. Wolf
-      7. Canary
-      8. Owl
+      | Elefant | Dog     |
+      | Lion    | Wolf    |
+      | Penguin | Canary  |
+      | Pidgeon | Owl     |
 
   %section
     :markdown
@@ -57,4 +58,73 @@
 
       1. Denote a method to apporiate classes, that return a text, denoting what
           kind they are.
+
+
+%section
+  %section
+    :markdown
+      ## Task C
+
+      Consider class structure of `Task A`
+
+      1. Each animal has an attribute denoting its life environment.
+
+      _Hint:_ Environment classes, _structured data/package_
+
+  %section
+    :markdown
+      ### Task C | Life Environments
+
+      | House | Cage |
+      | Zoo | Thundra |
+      | Air
+
+
+  %section
+    :markdown
+      ### Task C | LE | Types
+
+      - Closed
+      - Landscape
+      - WildEnvironment
+
+  %section
+    :markdown
+      ### Task C | Method
+
+      1. Model in __Multiple Inheritance__
+      2. Transform to __Single Inheritance__
+
+%section
+  %section
+    :markdown
+      ## Task D
+
+      We want to characterize
+
+      1. Predator
+      2. Prey
+
+      _Hint:_ Introduce intermediate classes where necessary
+      _Hint:_ Introduce _attributes_ where necessary
+
+  %section
+    :markdown
+      ### Task D | Requirements
+
+      1. A `Predator` cannot be _prey_
+      2. A `Predator` is (or)
+          - `Wild`
+          - `Pet`
+      3. A `Prey` is (or)
+          - `Wild`
+          - `Pet`
+
+%section
+  %section
+    :markdown
+      ## Task E
+
+      Introduce the `Human` into the hierarchy.
+
 

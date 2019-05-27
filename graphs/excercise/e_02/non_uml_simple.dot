@@ -1,0 +1,11 @@
+digraph {
+  rankdir="BT"
+
+  node [shape="box"]
+
+  a [label="class A"]
+  b [label="class B"]
+
+  b -> a [label="B inherits A", labeldistance=2.0]
+
+}

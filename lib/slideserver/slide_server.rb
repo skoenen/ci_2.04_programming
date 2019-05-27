@@ -20,7 +20,7 @@ module SlideServer
     end
 
     get "/graph/*.*" do |filename, ext|
-      fullpath = File.join(settings.root, "graphs", "#{filename}.dot")
+      fullpath = File.join("graphs", "#{filename}.dot")
 
       graph = GraphViz.parse( fullpath ) {|g| }
 

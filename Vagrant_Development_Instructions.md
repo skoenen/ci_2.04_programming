@@ -30,6 +30,27 @@ _Hint: cd ..._
 1. Run `$ vagrant up development`
     The output should look like:
 
+[![asciicast](https://asciinema.org/a/KS2jKWS1Xmt7GwmN3LNHmvLS5.svg)](https://asciinema.org/a/KS2jKWS1Xmt7GwmN3LNHmvLS5)
+
 2. Run `$ vagrant ssh development`
     To have console access to the VM.
+
+[![asciicast](https://asciinema.org/a/l13ZSEe0r4QbzZ2ZV7O0qBu13.svg)](https://asciinema.org/a/l13ZSEe0r4QbzZ2ZV7O0qBu13)
+
+3. VM is ready to use.
+
+## Additional information
+
+- The cloned/downloaded repo folder on your computer is automatically mounted
+    at `/vagrant`
+- Changes in the `/vagrant` folder and repo folder on your computer are instantly on
+    the computer and the vm
+
+_Hint:_ You can use your editor of your computer and use the vm to run the commands.
+
+## Shutdown, reboot and save state (suspend) of VM
+
+- Shutdown: `$ vagrant halt development`
+- Reboot:   `$ vagrant reload development`
+- Suspend:  `$ vagrant suspend development`
 

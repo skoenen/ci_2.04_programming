@@ -73,3 +73,17 @@ blockquote {
   }
 }
 
+.img-caption {
+  text-align: center !important;
+
+  .caption {
+    p {
+      text-align: center !important;
+      font-size: 60% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+  }
+
+}

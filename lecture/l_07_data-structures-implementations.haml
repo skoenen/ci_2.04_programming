@@ -1,0 +1,98 @@
+%section
+  %section
+    %h2
+      Data Structure Implementations
+
+  %section
+    :markdown
+      ## DSI | Arrays
+
+      An _Array_ is a continues collection of values.
+
+      The type of this values depend on the __Typing System__ of the _programming
+      language_.
+
+  %section
+    :markdown
+      ### DSI | Arrays 2
+
+      - In static typed programming languages, an array is only able to hold
+          values of the declared type.
+
+      - In dynamic typed programming languages, an array can hold any type of
+          value.
+
+  %section
+    :markdown
+      ### DSI | Array | Types
+
+      1. Single Dimension Array
+      2. Multi Dimension Array
+
+  %section
+    :markdown
+      #### DSI | Array | Single Dimension
+
+      A __single dimension__ array has one value under one element.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          int array[] = new int[64];
+
+          array[34] = 22;
+
+  %section
+    :markdown
+      #### DSI | Array | Multi Dimension
+
+      In a __multi dimension__ array an element is an _single_ or _multi_
+      dimensional array.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          int array[][] = new int[64][8192];
+
+          array[32][5023] = 305882;
+
+  %section
+    %h3 DSI | Array | Declaration
+
+    %pre
+      %code.java.hljs
+        :escaped
+          int[] array;
+          int []array;
+          int array[];
+
+    %p All lines are doing the same.
+
+  %section
+    %h3 DSI | Array | Instantiation
+
+    %pre
+      %code.java.hljs
+        :escaped
+          int[] array;
+          array = new int[32];
+
+          // The same
+          int[] array = new int[32];
+
+  %section
+    %h3 DSI | Array | Access
+
+    %pre
+      %code.java.hljs
+        :escaped
+          int a = arra[0];
+
+  %section
+    :markdown
+      ### DSI | Array | Remove
+
+      A easy way to remove an element from an array is not possible, to do so
+      all elements after the element to remove have to be rearranged one slot
+      further in the list.
+

@@ -1,0 +1,231 @@
+%section
+  %section
+    %h1
+      Typing System
+
+  %section
+    :markdown
+      A _Typing System_ describes the way, a specific programming language handles
+      data structures.
+
+      Currently (2019-05-24) there are two types of _Typing Systems_:
+
+      1. Static Typed System
+      2. Dynamic Typed System
+
+  %section
+    :markdown
+      ## Typing System | Hierarchy
+
+      Most type systems have a hierarchy of types.
+      This hierarchy represents the generic-specific ordering of data types.
+
+  %section
+    :markdown
+      ### Typing System | Hierarchy | Scala
+
+      ![Scala unified type hierarchy](https://docs.scala-lang.org/resources/images/tour/unified-types-diagram.svg)
+
+  %section
+    %h2 TS | Definitions 1
+
+    %dl
+      = definition "Variable", "A handle to work with a data structure"
+      = definition "Declaration", "The point where a variable is made known to the system"
+      = definition "Instantitiation", "The point where a declared variable gets its value"
+
+  %section
+    %h2 TS | Definitions 2
+
+    %dl
+      = definition "Allocation", "The process to reserve RAM for data."
+      = definition "Freeing", "The process of make a reserved RAM section free for other use."
+
+  %section
+    %h2 TS | Definitions 3
+
+    %dl
+      = definition "Reference", "An indication to a value stored elsewhere."
+      = definition "Dereference", "Process to access the value with a reference." |
+        "\nOften also called <em>Pointer</em>." |
+
+%section
+  %section
+    :markdown
+      ## Static Typed System
+
+      In a _static_ type system the _Type_ of a data value and/or the reference
+      have to be explicitly declared on time of declaration.
+
+      Also it is not possible to assign an other data type value then the
+      declared one.
+
+  %section
+    :markdown
+      ## Static Typed System | Implicit Typed System
+
+      In an implicit static type system, the data type of a variable is
+      inferred by the compiler at the first instantiation/assignment of a
+      value to it.
+
+  %section
+    :markdown
+      ## Static Typed System
+
+      Are easier to verify and find errors on _compile_ time.
+      Because all types of variables and data are known, the compiler can check
+      each use and issue a warning or error.
+
+%section
+  %section
+    :markdown
+      ## Dynamic Typed System
+
+      A _dynamic type_ system hides the data type from the programmer.
+      A variable can akt as a reference to any available data type.
+
+  %section
+    :markdown
+      ## Dynamic Typed System | Runtime-Error
+
+      Because the type of a reference is not known, the compiler or runtime
+      cannot know if a use of a variable is correct until it is used.
+
+      This often results in **Runtime Errors**, errors that only occur when a
+      programm is executed.
+
+  %section
+    :markdown
+      ## Dynamic Typed System | Duck Typing
+
+      In _dynamic typed_ system, is often the concept of **Duck Typing** used to
+      work with dynamic data types and to avoid _runtime errors_.
+
+      The principle is:
+
+    = blockcite "Wikipedia: Duck typing",
+    "https://en.m.wikipedia.org/wiki/Duck_typing", "If it walks like a " |
+    "duck and it quacks like a duck, it must be a duck." |
+
+  %section
+    :markdown
+      ## Dynamic Typed System | Duck Typing
+
+      Translated to programming:
+
+      If a data type responds to a message, or provides a specific method, then
+      it must be the expected data type.
+
+%section
+  %section
+    :markdown
+      ## Concepts in Typing Systems
+
+      There are some special operations that are needed in any typing system:
+
+      1. Conversion/Casting
+      2. Punning
+      3. Boxing
+
+  %section
+    :markdown
+      ### Concept: Conversion/Casting
+
+      This concept is based on the need in typing systems to convert a data type
+      to an other compatible data type.
+
+      In most cases this comes with the cost of loss in precision or truncation.
+
+      The term **casting** comes from metallurgy, and is the process of forcing
+      material into an other form.
+
+  %section
+    :markdown
+      ### Concept: Conversion/Casting
+
+      Some languages make a difference between _conversion_ and _casting_
+
+      - Conversion: Convert stored data bits
+      - Casting: Change the interpretation of the data bits
+
+  %section
+    :markdown
+      ### Concept: Conversion | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          Account account = new Account(302834);
+
+          float price = 2.458f;
+
+          account.withdraw((int) price);
+          //Same as: account.withdraw(2);
+
+  %section
+    :markdown
+      ### Concept: Casting | Example
+
+    %pre
+      %code.java.hljs
+        :escaped
+          class Animal {}
+          class Elefant extends Animal {}
+          class Zoo {
+            private Animal[] animals = new Animal[32];
+
+            public makeNoise() {
+              for(Animal a : animals) {
+                if(a instanceOf Elefant) {
+                  Elefant e = (Elefant) a;
+                  e.toot();
+                }
+              }
+            }
+          }
+
+  %section
+    :markdown
+      ### Concept: Type Punning
+
+      Describes techniques that circumvent a typing system to make effects
+      easier, faster or possible in the first place.
+
+  %section
+    :markdown
+      ### Concept: Type Punning | Example
+
+      Consider the need to check if a _floating point_ value is negative.
+      And floating point operations are cost intensive
+      (_hint:_ see lecture 06 about costs).
+
+  %section
+    :markdown
+      ### Concept: Type Punning | Example
+
+      If the _floating point_ is stored in
+      [IEEE 754 Floating Point Standard](https://en.wikipedia.org/wiki/IEEE_754),
+      a program can use _pointer casting_ to interpert the underlying bits as
+      _int_
+
+      Now the first bit can be extracted.
+
+  %section
+    :markdown
+      ### Concept: Type Punning | Example
+
+    %pre
+      %code.c.hljs
+        :escaped
+          bool is_negative(float x) {
+            unsigned int* ui = (unsigned int*) &x;
+
+            return *ui & 0x80000000;
+          }
+
+  %section
+    :markdown
+      ### Concept: Boxing
+
+      The concept of boxing is the action of casting a data type into a higher
+      one in the hierarchy

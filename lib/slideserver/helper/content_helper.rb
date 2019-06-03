@@ -15,10 +15,10 @@ module SlideServer
         @@slide_partial.render(Object.new, {}, block)
       end
 
-      def blockcite(caption, src, &block)
+      def blockcite(caption, src, text)
         @@blockcite_partial ||= Haml::Engine.new(partial_for("blockcite.haml"))
 
-        @@blockcite.render(Object.new, {caption: caption, src: src}, block)
+        @@blockcite_partial.render(Object.new, {caption: caption, src: src, text: text})
       end
 
       def code(language, &block)

@@ -1,5 +1,7 @@
 //= require highlight/styles/github-gist.css
 
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Roboto+Mono|Source+Code+Pro&display=swap');
+
 section p {
   text-align: justify;
   font-size: 0.9em;
@@ -90,4 +92,11 @@ img {
 
   }
 
+}
+
+.reveal {
+  code {
+    background: #e0e0e0 !important;
+    font-family: 'Roboto Mono', 'Anonymous Pro', monospace !important;
+  }
 }

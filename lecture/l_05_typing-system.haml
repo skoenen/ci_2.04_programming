@@ -229,3 +229,28 @@
 
       The concept of boxing is the action of casting a data type into a higher
       one in the hierarchy
+
+  %section
+    :markdown
+      ### Concept: Boxing | Type Hierarchy
+
+      First we have to remember
+
+      ![Scala unified type hierarchy](https://docs.scala-lang.org/resources/images/tour/unified-types-diagram.svg)
+
+  %section
+    :markdown
+      ### Concept: Boxing | Example
+
+      According to the hierarchy we can do the following:
+
+    %pre
+      %code.scala.hljs
+        :escaped
+          class Request {}
+          class JSONRequest extends Request {}
+
+          JSONRequest jreq = new JSONRequest();
+
+          server.handle((Request) jreq);
+

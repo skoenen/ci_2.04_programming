@@ -2,7 +2,9 @@
   %section
     :markdown
       # Computational complexity theory
-
+  
+  %section
+    :markdown
       Is a branch of information theory and mathematics.
 
     = blockcite "Wikipedia: Computational complexity theory", |
@@ -14,11 +16,9 @@
     %h2 Computational problems
 
     %dl
-      = define "Computational Problem", "Is a task that is/can be solved by " |
-          "a computer." |
+      = definition "Computational Problem", "Is a task that is/can be solved by a computer."
 
-      = define "Computation Problem", "Is a problem that can be solved by " |
-          "mechanicaly apply mathematical steps. (See Algorithm)" |
+      = definition "Computation Problem", "Is a problem that can be solved by mechanicaly appling mathematical steps. (See mathematical Algorithm)"
 
   %section
     :markdown
@@ -26,6 +26,19 @@
 
       If a problem requires significant resources to be solved, no matter which
       algorithm is used, this problem is considered difficult.
+
+  %section
+    :markdown
+      ## Measurements of complexity
+
+      There several characteristics that can be used to meseasure the 
+      complexity of a problem.
+
+      - Time and Storage
+      - Amount of logic gates
+      - Amount communication
+      - Number of processors
+      - ...
 
   %section
     :markdown
@@ -62,4 +75,231 @@
 
       The question is, if the solution to a problem that can be quickly verified
       can also be solved quickly (again, in polynominal time).
+
+  %section
+    :markdown
+      ## Problem and Instances
+
+      In computational theory a problem is an infinite collection of instances
+      with their solution.
+
+      The input to a problem is an instance and is not the problem itself.
+
+  %section
+    :markdown
+      ### Problem and Instances | Example
+
+      Take the problem of 'Primality Testing'.
+
+      | **Problem:** | _Is a given number a 'Prime', result is 'yes'. Otherwise 'No'_ |
+      | **Instance:** | 15 |
+      | **Result:** | 'no' |
+
+  %section
+    :markdown
+      ## Presentation of problem instances
+
+      Computational problems instances are considered strings over an
+      alphabet.
+
+      In computation these alphabet is taken to be a binary alphabet (i.e.
+      {0,1})
+
+%section
+  %section
+    :markdown
+      ## Problem classifications
+
+      Two examples types:
+
+      1. Decision Problem
+      2. Function Problem
+
+  %section
+    :markdown
+      ## Decision Problem
+
+      These problems are a central object to research.
+
+      The goal is to identify if an instance belongs is a member of a formal 
+      description or not.
+      This is done with the help of an _Algorithm_ that outputs `Yes` or `No`
+      for a given instance.
+
+  %section
+    :markdown
+      ## Decision Problem | Example
+
+      Take the problem of determining, if a given graph is a member of
+      connected graphs.
+
+      If the algorithm outputs __Yes__ the graph is accepted.
+
+      (Usually it is noted as: _The algorithm accepts the input_)
+
+  %section
+    :markdown
+      ## Decision Problem | Example
+
+      If the algorithm outputs **No**, the graph is not a connected graph.
+
+      (Usually it is noted as: _The algorithm rejects the input_)
+
+  %section
+    :markdown
+      ## Function Problem
+
+      These problems have a single output to an input.
+      But the output can be more complex.
+
+      _Examples:_
+
+      - Traveling Salesman Problem
+      - Integer factorization Problem
+      - Shortest-Path Problem
+
+  %section
+    :markdown
+      ## Difficulty of the problem types
+
+      Due to the complexity of the output of _Function Problems_ the first
+      guess is, that they are inherently the more difficult problems.
+
+      But a _Function Problem_ can be seen as a decision problem.
+
+  %section
+    :markdown
+      ## Difficulty of the problem types
+
+      _Integer Factorization_:
+
+      The multiplication of two integers to its product, can be expressed as a
+      triple `(a, b, x)` where `a * b = x` holds.
+
+      With that a given combination can be decided on.
+
+  %section
+    :markdown
+      ## Difficulty of the problem types
+
+      Therefore a assumption wich problems are more difficult can not be made.
+
+%section
+  %section
+    :markdown
+      ## Turing Machines
+
+      A _Turing Machine_ is a mathematical model of general computing.
+      These are not intended as practical computation technology.
+
+      But can represent any particular manifestation of computer, from a
+      quantum super computer to a human with a pen.
+
+  %section
+    :markdown
+      ## Turing Machines
+
+      They operate on a tape like strip of symbols.
+      Its components are:
+
+      1. A endless _tape_ divided into cells and each cell can held a symbol
+      2. A _head_, that can read, write or erase one cell at a time on the tape.
+      3. A _state register_, that stores the current state of the machine.
+      4. A **finite** _table_ of instructions
+
+  %section
+    :markdown
+      ## Turing Machines
+
+      $$q_i$$ is the current position of the _head_ on the tape.
+
+      Operations are:
+
+      - Write a symbol $$q_i = a_j$$
+      - Erase a symbol $$q_i = \emptyset$$
+      - Move tape left one position $$d_k = L$$
+      - Move tape right one position $$d_k = R$$
+
+  %section
+    :markdown
+      ## Turing Machines
+
+      But they are easy to analyse with mathematics and also considered as
+      powerful as any other model of computing.
+
+      Therefore they build the basis for computational theory and complexity
+      theory.
+
+  %section
+    :markdown
+      ## Other modles of computation
+
+      - RAM Machine
+      - Conway's Game of Life
+      - Cellular automata
+
+%section
+  %section
+    :markdown
+      ## Measure complexity
+
+      The _time_ an algorithm takes on an input `x` is the amount of state
+      transitions the machine has to make until the machine outputs `Yes` or
+      `No`
+
+      If a problem can be computed on a _deterministic Turing Machine_
+      in a time of $$f(n)$$ where $$n = |P|$$ and $$P$$ is the problem space.
+
+      The problem is considered to be $${DTIME}(~f(n)~)$$
+
+  %section
+    :markdown
+      ## Complexity notation
+
+      Complexity can be measured under four different cases:
+
+      1. Best-Case
+      2. Average-Case
+      3. Amortized Analysis
+      4. Worst-Case
+
+  %section
+    :markdown
+      ## Complexity notation
+
+      Each case is measured on specific instances of the problem and is noted
+      in the _Big-O-Notation_
+
+      Where konstants and linear factors neglected.
+
+  %section
+    :markdown
+      ## Complexity Borders
+
+      $$n$$ is the length of the possible input.
+
+      | Name              | Notation                    |
+      |-------------------|-----------------------------|
+      | constant          | $$O(1)$$                    |
+      | lograrithmic      | $$O(log n)$$                |
+      | poly-logarithmic  | $$O(log^k n)~\|~k \ge 1$$   |
+      | linear            | $$O(n)$$                    |
+
+  %section
+    :markdown
+      ## Complexity Borders II
+
+      | Name              | Notation                    |
+      |-------------------|-----------------------------|
+      | linearithmic      | $$O(n~{log}~n)$$            |
+      | quadratic         | $$O(n^2)$$                  |
+      | polynominal       | $$O(n^k)~\|~k \ge 1$$       |
+      | exponential       | $$O(d^n)~\|~d \gt 1$$       |
+
+  %section
+    :markdown
+      ## Complexity notation
+
+      For each notation you encouter or give, the case under which it is
+      measeured should be noted.
 

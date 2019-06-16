@@ -1,0 +1,17 @@
+!!!5
+%html
+  %head
+    %title= @title
+    %link{ rel: "stylesheet", href: url("/stylesheet/excercise.css") }
+
+  %body
+    %header
+
+    %section
+      = yield
+
+    %footer
+      %img.logo{ src: url("/images/hsrw.svg") }
+
+  %script{ src: url("/javascript/excercise.js") }
+

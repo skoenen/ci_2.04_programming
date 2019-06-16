@@ -19,6 +19,14 @@ module SlideServer
       settings.sprockets.call(env)
     end
 
+    get "/stylesheet/*" do
+      settings.sprockets.call(env)
+    end
+
+    get "/javascript/*" do
+      settings.sprockets.call(env)
+    end
+
     get "/graph/*.*" do |filename, ext|
       fullpath = File.join("graphs", "#{filename}.dot")
 

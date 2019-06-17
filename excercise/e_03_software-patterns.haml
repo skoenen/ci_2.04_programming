@@ -1,0 +1,61 @@
+%section
+  %section
+    %h1 Excecise 03: Software Patterns
+
+%section
+  %section
+    :markdown
+      ## The Visitor Pattern
+
+      Construct a class that can be visited by a visitor.
+
+  %section
+    :markdown
+      ### Additional Information
+
+      - Make use of `Interface` in _Java_.
+
+%section
+  %section
+    :markdown
+      ## The Singleton Pattern
+
+      Construct a class, that always has only **one** instance.
+
+  %section
+    :markdown
+      ### Additional Information
+
+      - `static` variables and methods are class methods and the same for every
+          object/instance
+      - Constructors can be private
+
+%section
+  %section
+    :markdown
+      ## The Factory Method Pattern
+
+      The _factory method_ pattern uses a method to generate an object for a
+      requester, without the requester need to know which class to instantiate.
+
+  %section
+    :markdown
+      ### The Task
+
+      _Example here is a maze game_
+
+      Construct classes:
+
+      1. `MazeGame` that has only `Rooms` that are direct connected
+      2. `MagicMazeGame` that has also `MagicRooms` that teleport a `Runner` to a random `Room`
+      3. `Room` that can have a `Challenge` or not.
+      4. `MagicRoom` that teleports the `Runner` to a non `MagicRoom`
+      5. `Runner` a visitor for the `Rooms`
+
+  %section
+    :markdown
+      ### Additional Information
+
+      - Class Hierarchy
+      - `static`
+

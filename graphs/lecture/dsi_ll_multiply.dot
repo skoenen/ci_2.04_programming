@@ -1,0 +1,95 @@
+digraph {
+  ordering=in
+
+  node [shape=rectangle]
+
+  subgraph a_d {
+    rankdir=LR
+    rank=same
+
+    a [label="A"];
+    b [label="B"];
+    c [label="C"];
+    d [label="D"]
+
+
+    a -> b
+    b -> a
+    b -> c
+    c -> b
+    c -> d
+    d -> c
+  }
+
+    a -> aa
+    b -> ba
+    c -> ca
+    d -> da
+
+  subgraph aa {
+    rankdir=TB
+
+    aa [label="AA"]
+    ab [label="AB"]
+    ac [label="AC"]
+    ad [label="AD"]
+
+    aa -> ab
+    ab -> aa
+    ab -> ac
+    ac -> ab
+    ac -> ad
+    ad -> ac
+
+    aa -> a
+  }
+
+  subgraph ba {
+    rankdir=TB
+
+    ba [label="BA"]
+    bb [label="BB"]
+    bc [label="BC"]
+    bd [label="BD"]
+
+    ba -> bb
+    bb -> ba
+    bb -> bc
+    bc -> bb
+    bc -> bd
+    bd -> bc
+
+    ba -> b
+  }
+
+  subgraph ca {
+    rankdir=TB
+
+    ca [label="CA"]
+    cb [label="CB"]
+    cc [label="CC"]
+    cd [label="CD"]
+
+    ca -> cb
+    cb -> ca
+    cb -> cc
+    cc -> cb
+    cc -> cd
+    cd -> cc
+
+    ca -> c
+  }
+
+  subgraph da {
+    rankdir=TB
+
+    da [label="DA"]
+    db [label="DB"]
+
+    da -> db
+    db -> da
+
+    da -> d
+  }
+}
+

@@ -5,7 +5,7 @@
 
   %section
     :markdown
-      ## DSI | Arrays
+      ## Arrays
 
       An _Array_ is a continues collection of values.
 
@@ -14,7 +14,7 @@
 
   %section
     :markdown
-      ### DSI | Arrays 2
+      ### Arrays 2
 
       - In static typed programming languages, an array is only able to hold
           values of the declared type.
@@ -24,14 +24,14 @@
 
   %section
     :markdown
-      ### DSI | Array | Types
+      ### Array | Types
 
       1. Single Dimension Array
       2. Multi Dimension Array
 
   %section
     :markdown
-      #### DSI | Array | Single Dimension
+      #### Array | Single Dimension
 
       A __single dimension__ array has one value under one element.
 
@@ -44,7 +44,7 @@
 
   %section
     :markdown
-      #### DSI | Array | Multi Dimension
+      #### Array | Multi Dimension
 
       In a __multi dimension__ array an element is an _single_ or _multi_
       dimensional array.
@@ -57,7 +57,7 @@
           array[32][5023] = 305882;
 
   %section
-    %h3 DSI | Array | Declaration
+    %h3 Array | Declaration
 
     %pre
       %code.java.hljs
@@ -69,7 +69,7 @@
     %p All lines are doing the same.
 
   %section
-    %h3 DSI | Array | Instantiation
+    %h3 Array | Instantiation
 
     %pre
       %code.java.hljs
@@ -81,7 +81,7 @@
           int[] array = new int[32];
 
   %section
-    %h3 DSI | Array | Access
+    %h3 Array | Access
 
     %pre
       %code.java.hljs
@@ -90,9 +90,213 @@
 
   %section
     :markdown
-      ### DSI | Array | Remove
+      ### Array | Remove
 
       A easy way to remove an element from an array is not possible, to do so
       all elements after the element to remove have to be rearranged one slot
       further in the list.
+
+  %section
+    :markdown
+      ## Array | Complexity
+
+      | Operation                   | Complexity    |
+      |-----------------------------|---------------|
+      | Indexing                    | $\Theta(1)$   |
+      | Insert/delete at beginning  | NA            |
+      | Insert/delete in the middle | NA            |
+      | Insert/delete at the end    | NA            |
+      | Wasted Space average        | $0$           |
+      | Set Element                 | $\Theta(1)$   |
+
+  %section
+    :markdown
+      ## Array | Dynamic Array
+
+      Is a growable Array that trades computation time favor of size changing.
+
+      It uses an algorithm to change the size of the underlying data structure
+      to be able to store new elements on insert.
+
+  %section
+    :markdown
+      ## Array | Dynamic Array | Complexity
+
+      | Operation                   | Complexity             |
+      |-----------------------------|------------------------|
+      | Indexing                    | $\Theta(1)$            |
+      | Insert/delete at beginning  | $\Theta(n)$            |
+      | Insert/delete in the middle | $\Theta(n)$            |
+      | Insert/delete at the end    | $\Theta(1)$ armotized  |
+      | Wasted Space average        | $\Theta(n)$            |
+      | Set Element                 | $\Theta(1)$            |
+
+%section
+  %section
+    :markdown
+      ## Linked List
+
+      Linked lists are odered lists and use references to build a chain of
+      elements.
+
+  %section
+    :markdown
+      ## Linked Lists | Variants
+
+      1. Single Linked List
+      2. Double Linked List
+      3. Multiply Linked List
+      4. Hash Link List
+
+  %section
+    :markdown
+      ## Linked List | Single Linked List
+
+      Only uses one field to hold a reference to the next element.
+
+      ![Single Linked List](dsi_ll_single.svg)
+
+  %section
+    :markdown
+      ## Linked List | Double Linked List
+
+      Has two elements.
+      One holding a reference to the next element.
+      Second one holding a reference to the previous element.
+
+      ![Double Linked List](dsi_ll_double.svg)
+
+  %section
+    :markdown
+      ## Linked List | Multiply Linked List
+
+      In most cases this is structured like the _Double Linked List_.
+      But an element holds more references to build chains of other order.
+
+      Example by _Name_, _Date_, _Integer Value_ and so forth.
+
+  %section
+    :markdown
+      ## Linked List | Multiply Linked List
+
+      The _Double Linked List_ is considered a special form of these lists.
+
+  %section
+    :markdown
+      ## Linked List | Multiply Linked List
+
+      ![Multiply Linked List](dsi_ll_multiply.svg)
+
+  %section
+    :markdown
+      ## Linked List | Circular Linked List
+
+      Here the last element has a references to the first element.
+
+      ![Circular Linked List](dsi_ll_circular.svg)
+
+  %section
+    :markdown
+      ## Linked List | Hash Linking
+
+      Uses two Arrays to store the value and the adress of the next element in
+      at the same _index_ in these arrays.
+
+  %section
+    :markdown
+      ## Linked List | Complexity
+
+      | Operation                   | Complexity        |
+      |-----------------------------|-------------------|
+      | Indexing                    | $\Theta(n)$       |
+      | Insert/delete at beginning  | $\Theta(1)$       |
+      | Insert/delete in the middle | $\Theta(n)$       |
+      | Insert/delete at the end    | $\Theta(n)$       |
+      | Wasted Space average        | $\Theta(n)$       |
+      | Set Element                 | $\Theta(1)$       |
+
+  %section
+    :markdown
+      ## Linked List | Complexity
+
+      When the list implementation has a reference to the _Tail_-Element,
+      the insert/delete operation at the end has $\Theta(1)$ complexity.
+
+%section
+  %section
+    :markdown
+      ## Hash Map
+
+      Also called _Hash Table_.
+
+      Implement associative structured data.
+
+      They consist of several preallocated _buckets_ to store data.
+      Each bucket has an index.
+
+      And a _hash_ function is used to generate an index out of a key.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function
+
+      A disered hash function assigns an unique index to each key.
+
+      Most implementation instead use a weaker hash function to balance hash
+      computation time and uniqueness.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function
+
+      Hash functions also have to make sure that the selected index is an
+      index of a bucket.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          long index = hash(key, array.length);
+
+    :markdown
+      This can also be achieved with the `%` _(Modulo Operator)_.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          long hash_index = hash(key);
+          long index = hash_index % array.length;
+
+    :markdown
+      This variant has the advantage, that the _Hash Function_ is independend
+      of the amount of buckets.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function
+
+      The drawback is, that the operations above are not unique for every key.
+
+      Therefore a good _Hash Function_ has to be selected.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function
+
+      A basic requirement for a good _Hash Function_, is the circumstance that 
+      the generated indexes are uniformly distributed over the bucket
+      address-space.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function | Cryptographic Functions
+
+      Cryptographic hash functions are considered to give good uniqueness for
+      any size of bucket space.
+
+      But one drawback of them, is the often high compute time.
+
+  %section
+    :markdown
+      ## Hash Map | Hash Function
+
 

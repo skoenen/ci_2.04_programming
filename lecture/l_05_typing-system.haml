@@ -254,3 +254,75 @@
 
           server.handle((Request) jreq);
 
+%section
+  %section
+    :markdown
+      ## Stack and Heap
+
+      Nearly all computer system have the concept of
+
+      1. Stack
+      2. Heap
+
+  %section
+    :markdown
+      ## Stack
+
+      A stack is a part of the ram that is directly incorporated in the
+      instruction storage in the _RAM_ of a program.
+
+      It is used for primitive data and simple structured data.
+
+      Data on stack always needs a fixed size.
+
+      Data on stack is always allocated sequential and _LIFO_.
+
+  %section
+    :markdown
+      ## Stack | Allocation and Lifetime
+
+      Because of the defined fixed size, allocating on the stack is very fast.
+
+      Drawback:
+
+      The used space on the stack is deallocated, when the execution leaves
+      the instruction scope (return to previous code).
+
+  %section
+    :markdown
+      ## Heap
+
+      The heap is a dedicated _RAM_ region and has no ordering of allocation.
+
+      This makes it harder to keep track of used and free space.
+
+      Size of data on the heap can be dynamic.
+
+      And lifetime can be longer than data on stack.
+
+  %section
+    :markdown
+      ## Heap | Allocation
+
+      Allocation of data on the heap takes more time.
+
+      1. The _OS_/_Runtime_ has to find a large enough free space
+      2. Allocate the needed space
+      3. Mark and track status of space
+      4. Return handle to allocated space
+
+  %section
+    :markdown
+      ## Heap | Lifetime
+
+      The lifetime of data on the heap depends on the application logic.
+
+      The program has to explicitly deallocate the previously allocated space.
+
+      Deallocation only tells the _OS_/_Runtime_ that the space is not needed
+      anymore.
+
+      A process to overwrite the space with random values to prevent leak of
+      sensitive data can be necessary.
+
+

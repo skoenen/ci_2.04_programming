@@ -9,6 +9,7 @@ module SlideServer
     set :sprockets, Sprockets::Environment.new
     settings.sprockets.css_compressor = :scss
     settings.sprockets.append_path('template/assets')
+    settings.sprockets.append_path('images')
 
     set :bind, "::"
 
@@ -62,11 +63,24 @@ module SlideServer
         :layout_options => { views:  "template" }
     end
 
-    get "/:type/:filename.html" do |type, filename|
-      haml filename.to_sym,
-        :views => type,
-        :layout => :layout,
-        :layout_options => { views: "template" }
+    get "/:type/:filename.:ext" do |type, filename, ext|
+      case ext
+      when 'html', 'haml', 'md'
+        haml filename.to_sym,
+          :views => type,
+          :layout => :layout,
+          :layout_options => { views: "template" }
+      when 'svg', 'png', 'jpg', 'tiff', 'jpeg'
+        puts Dir.pwd
+        puts "Path: '#{type}', File: '#{filename}.#{ext}'"
+        #content_type "image/svg+xml"
+        send_file File.join(type, "#{filename}.#{ext}")
+      end
+    end
+
+    get "/images/:filename" do
+      settings.sprockets.call(env)
+      #content_type "image/svg+xml"
     end
   end
 

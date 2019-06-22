@@ -90,3 +90,99 @@
       Create a class to create a coffee machine that can handle different
       coffees.
 
+%section
+  %section
+    :markdown
+      ## The Iterator Pattern
+
+      Allows to decouple algorithms from containers/data structures.
+
+      It provides a way to traverse elements of a collection, without the need,
+      that the collection knows about specifics of the algorithm.
+
+  %section
+    :markdown
+      ### The Task
+
+      Create a collection in _Linked List_ variant.
+
+      Create an _Interface_ for the iterator definition
+
+      Make the collection to provide the _Iterator_ interface.
+
+      Finally make an algorithm that outputs each element of the collection
+      using the iterator.
+
+%section
+  %section
+    :markdown
+      ## The Adapter Pattern
+
+      This pattern is able to provide an alternative interface to a class.
+
+      - Use a class that has an incompatible interface
+      - Migrate an existing not changable class to a new interface/application
+
+      The new interface the adapter class provides can be attached on runtime to
+      a class with old interface.
+
+  %section
+    :markdown
+      ## The Adapter Pattern
+
+      Utilizes data casting/conversion to make classes compatible.
+
+  %section
+    :markdown
+      ### The Task
+
+      Create an adapter to the following class to make it usable with _Strings_.
+
+    %pre
+      %code.java.hljs
+        :escaped
+          package eu.hsrw.ci_2_04_programming.patterns
+
+          public class Serializer {
+
+            public char[] getLineOf(File file) {
+            }
+
+          }
+
+%section
+  %section
+    :markdown
+      ## The Command Pattern
+
+      Uses a class to aggregate
+
+      - The method to execute
+      - The parameters for the method
+
+      and can then be handed to a class that the _Command_ is then executed
+      inside.
+
+  %section
+    :markdown
+      ### The Task
+
+      - Create a _Interface_ to define the standard for a command.
+      - Create a _switch on_ command
+      - Create a _switch off_ command
+      - Create a _change brightness_ command
+      - Create a _light_ that supports the _Command_
+
+%section
+  %section
+    :markdown
+      ## The Chain-of-responsibility Pattern
+
+      Uses several _Command_ objects in a chain to execute a set of operations.
+
+      _Advantage:_ The order of commands can be composed or altered on runtime.
+
+  %section
+    :markdown
+      ### The Task
+

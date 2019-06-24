@@ -280,7 +280,7 @@
 
   %section
     :markdown
-      ## Hash Map | Hash Function
+      ### Hash Map | Hash Function
 
       A basic requirement for a good _Hash Function_, is the circumstance that 
       the generated indexes are uniformly distributed over the bucket
@@ -288,7 +288,7 @@
 
   %section
     :markdown
-      ## Hash Map | Hash Function | Cryptographic Functions
+      #### HM | HF | Cryptographic Functions
 
       Cryptographic hash functions are considered to give good uniqueness for
       any size of bucket space.
@@ -297,6 +297,102 @@
 
   %section
     :markdown
-      ## Hash Map | Hash Function
+      #### HM | HF | Cryptographic Functions
+
+      Example:
+
+    %pre
+      %code.scala.hljs
+        :escaped
+          import java.security.MessageDigest;
+
+          public class HashMap<K, V> {
+            private val hashFunction = MessageDigest.getInstance("SHA-1");
+
+            private V[] buckets = new V[START_SIZE];
+
+            private def hash(key: K): int {
+              return (hashFunction(key.toBytes()) % buckets.length);
+            }
+
+            // More Code here ...
+          }
+
+  %section
+    :markdown
+      #### HM | HF | Load Factor
+
+      The hash function is one of the bases, that a _Hash Map_ can achieve a
+      $O(1)$ index time/cost.
+
+      A characterstic to estimate this is the **Load Factor**.
+
+      $ f_l(n, k) = \frac{n}{k} $
+
+      $ n = \text{entries occupied} $
+
+      $  k = \text{number of buckets} $
+
+  %section
+    :markdown
+      #### HM | HF | Load Factor
+
+      For a fixed number $k$ the lookup _(indexing)_ time for a hash table grows
+      larger.
+
+      In real world, _(ex. Java 10)_ the $f_l$ is mostly keept at $0.75$
+
+      A $f_l$ of $0$ is also not desired, because it shows that there is a lot
+      of wasted space in the map/table.
+
+  %section
+    :markdown
+      #### HM | HF | Collision Resolution
+
+      Even with a perfectly uniform distribution of the buckets, the problem of
+      collisions can not be avoided for the large set of possible keys.
+
+      Thats were _collision resolution_ must be done.
+
+      There are four known ways:
+
+      1. Seperate Chaining
+      2. Open Adressing
+      3. Robin Hood hashing
+      4. 2-choice hashing
+
+  %section
+    :markdown
+      #### HM | HF | CR | Seperate Chaining
+
+      The buckets are independent to each other.
+
+      Consist themselve of a list.
+
+      The indexing time is now $O(1) + O(n)$ for finding the key in the list of
+      the bucket.
+
+  %section
+    :markdown
+      #### HM | HF | CR | Seperate Chaining
+
+      ![Seperate Chaining](dsi_hm_collision_seperate-chaining.svg)
+
+  %section
+    :markdown
+      #### HM | HF | CR | Open Adressing
+
+      All collisions are stored in the same adress space.
+
+      If an element is already stored, go up in indexes until a free slot is
+      found.
+
+      The indexing time is now $O(1) + O(\frac{n}{k})$
+
+  %section
+    :markdown
+      #### HM | HF | CR | Open Adressing
+
+      ![Open Adressing](dsi_hm_collision_open-adressing.svg)
 
 

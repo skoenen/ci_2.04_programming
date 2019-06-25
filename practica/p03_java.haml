@@ -155,14 +155,27 @@
     :markdown
       ## Packages in Java
 
-      A package in java is a concept to seperate class from others.
+      A package in java is a concept to seperate a class from others.
 
       Makes it possible to use the same name in different contexts
 
     %pre
       %code.java.hljs
         :escaped
-          package org.hsrw.ci.2.04_programming.2019ss
+          // File: org/hsrw/ci_2_04_programming/Example.java
+          package org.hsrw.ci_2_04_programming;
+
+          public class Example {
+          }
+
+  %section
+    :markdown
+      ## Packages in Java 2
+    %pre
+      %code.java.hljs
+        :escaped
+          // File: org/hsrw/ci_2_04_programming/other/Example.java
+          package org.hsrw.ci_2_04_programming.other;
 
           public class Example {
           }
@@ -174,8 +187,19 @@
       - _Hint:_ Look in the `build` folder
       - _Attention:_ CLASS_NAME is not enough to run the program.
           You have to specify the new complete Name of the class.
-          ex.: `org.hsrw.ci.2.04_programming.2019ss.CLASS_NAME`
+          ex.: `org.hsrw.ci.2_04_programming.CLASS_NAME`
       - Java Documentation of `java.time` and `String`
+  
+  %section
+    :markdown
+      ## Additional Information 2
+
+      - Package name or parts cannot start with a number:
+        - ERROR: `package org.hsrw.ci.2_04_programming;`
+      - Package name or parts cannot include `-`:
+        - ERROR: `package org.hsrw.ci_2_04-programming;`
+      - Package name or parts cannot start with `_`:
+        - ERROR: `package org.hsrw.ci._2_04_programming;`
 
   %section
     %h3
@@ -184,7 +208,7 @@
     %pre
       %code.java.hljs
         :escaped
-          package org.hsrw.ci.2.04_programming.2019ss
+          package org.hsrw.ci_2_04_programming;
 
           public class ... {
             public static int main(String[] argv) {
@@ -248,7 +272,7 @@
           }
 
           // Normaly reverse notation of your company/personal domain
-          group "eu.hsrw.ais"
+          group "org.hsrw.ci_2_04_programming"
 
           version 0.1
 
@@ -263,7 +287,7 @@
           }
 
           // Needed for `id 'application'`
-          mainClassName = "org.hsrw.ci_2_04_programming.2019_ss.App"
+          mainClassName = "org.hsrw.ci_2_04_programming.App"
 
   %section
     :markdown

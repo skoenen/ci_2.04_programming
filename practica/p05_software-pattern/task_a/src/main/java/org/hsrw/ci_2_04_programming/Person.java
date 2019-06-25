@@ -4,7 +4,7 @@ public class Person extends Schema {
   private String name;
   private String surname;
 
-  public Person(String surname, String name) {
+  public Person(String name, String surname) {
     name = name;
     surname = surname;
   }

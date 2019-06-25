@@ -30,5 +30,8 @@ vendor/
 build/
 .gradle/
 .settings/
+.idea/
+.project
+.classpath
 
 *.class

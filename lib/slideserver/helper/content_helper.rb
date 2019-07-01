@@ -33,10 +33,17 @@ module SlideServer
         @@definition_partial.render(Object.new, {name: name, block: block})
       end
 
-      def image(name, source, img_url)
+      def image(name, source, img_url, style=nil)
         @@image_partial ||= Haml::Engine.new(partial_for("image.haml"))
 
-        @@image_partial.render(Object.new, {name: name, credit: source, src: img_url})
+        style ||= ""
+
+        @@image_partial.render(Object.new, {
+            name: name,
+            credit: source,
+            src: img_url,
+            style: style
+        })
       end
     end
 

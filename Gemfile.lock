@@ -19,7 +19,7 @@ GEM
       tilt
     kramdown (2.1.0)
     mustermann (1.0.3)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-protection (2.0.5)
       rack
     rb-fsevent (0.10.3)
